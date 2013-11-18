@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2AE711C183AB37600551ECC /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AE711B183AB37600551ECC /* MapViewController.m */; };
 		FB588343183A115F001D7E29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB588342183A115F001D7E29 /* Foundation.framework */; };
 		FB588345183A115F001D7E29 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB588344183A115F001D7E29 /* CoreGraphics.framework */; };
 		FB588347183A115F001D7E29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB588346183A115F001D7E29 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2AE711A183AB37600551ECC /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		D2AE711B183AB37600551ECC /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		FB58833F183A115F001D7E29 /* Declaration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Declaration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB588342183A115F001D7E29 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB588344183A115F001D7E29 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,6 +156,8 @@
 				FB588389183A764B001D7E29 /* PageViewController.m */,
 				FB58838B183A791C001D7E29 /* PhotoViewController.h */,
 				FB58838C183A791C001D7E29 /* PhotoViewController.m */,
+				D2AE711A183AB37600551ECC /* MapViewController.h */,
+				D2AE711B183AB37600551ECC /* MapViewController.m */,
 			);
 			path = Declaration;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				FB588387183A70E9001D7E29 /* NSDate+Utils.m in Sources */,
 				FB58837B183A1881001D7E29 /* FormViewController.m in Sources */,
 				FB58838D183A791C001D7E29 /* PhotoViewController.m in Sources */,
+				D2AE711C183AB37600551ECC /* MapViewController.m in Sources */,
 				FB58837E183A2850001D7E29 /* UITextView+Utils.m in Sources */,
 				FB58834F183A115F001D7E29 /* main.m in Sources */,
 			);
@@ -502,6 +508,7 @@
 				FB588373183A115F001D7E29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB588374183A115F001D7E29 /* Build configuration list for PBXNativeTarget "DeclarationTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +517,7 @@
 				FB588376183A115F001D7E29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

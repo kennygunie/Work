@@ -18,12 +18,9 @@
 
 @property BOOL showDatePicker;
 
-
-@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UITableViewCell *descriptionCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *dateCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *datePickerCell;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 - (IBAction)updateDate:(id)sender;
 
@@ -46,6 +43,7 @@
     [super viewDidLoad];
     self.showDatePicker = NO;
     self.dateLabel.text = [[NSDate new] dateString];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -62,6 +60,12 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - Table view data source
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
