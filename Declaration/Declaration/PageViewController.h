@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageViewController : UIPageViewController <UIPageViewControllerDataSource>
+@interface PageViewController : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+
+@property (nonatomic, copy) void (^pageDidLoadImage)(UIImage *image);
 
 @end

@@ -13,4 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+//- (IBAction)dismissModalAction:(id)sender;
+//- (IBAction)toggleStickerViewAction:(id)sender;
+
 @end

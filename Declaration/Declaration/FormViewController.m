@@ -182,7 +182,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
         if ([textView.text isEqualToString:DESCRIPTION_TEXT_HOLDER]) {
             [textView setText:nil
-                        color:[UIColor blackColor]];
+                        color:[UIColor whiteColor]];
         }
         
         [self.tableView beginUpdates];
@@ -195,7 +195,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (textView == self.descriptionTextView) {
         if ([textView.text length] == 0) {
             [textView setText:DESCRIPTION_TEXT_HOLDER
-                        color:[UIColor placeHolderTextColor]];
+                        color:[UIColor lightGrayColor]];
         }
         [self.tableView beginUpdates];
         [self.tableView endUpdates];

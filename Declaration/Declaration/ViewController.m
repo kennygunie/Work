@@ -10,14 +10,17 @@
 #import "FormViewController.h"
 #import "PageViewController.h"
 #import "MapViewController.h"
+#import "UIImage+ImageEffects.h"
 
 @import MapKit;
 
 @interface ViewController ()
 
 @property (weak, nonatomic) FormViewController *formViewController;
-@property (weak, nonatomic) MapViewController *mapViewController;
+@property (strong, nonatomic) MapViewController *mapViewController;
 @property (weak, nonatomic) PageViewController *pageViewController;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+
 - (IBAction)confirmAction:(id)sender;
 
 @end
@@ -61,10 +64,25 @@
         self.formViewController = [segue destinationViewController];
     } else if ([[segue identifier] isEqualToString:@"PageViewController"]) {
         self.pageViewController = [segue destinationViewController];
+        self.pageViewController.pageDidLoadImage = ^(UIImage *image) {
+            self.backgroundImageView.image = [image applyLightEffect];
+        };
     } else if ([[segue identifier] isEqualToString:@"MapViewController"]) {
         self.mapViewController = [segue destinationViewController];
     }
 }
 
-
+/*
+- (IBAction)drawPlanAction:(id)sender
+{
+    if (!self.mapViewController) {
+        UIStoryboard *storyboard = self.storyboard;
+        self.mapViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+        self.mapViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        self.mapViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    }
+    [self presentViewController:self.mapViewController
+                       animated:YES completion:nil];
+}
+*/
 @end

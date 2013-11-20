@@ -11,6 +11,15 @@
 
 @interface MapViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *stickerView;
+@property (weak, nonatomic) IBOutlet UIButton *toggleStickerButton;
+@property (weak, nonatomic) IBOutlet UIImageView *car1ImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *car2ImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *car3ImageView;
+
+- (void)handlePan:(UIPanGestureRecognizer *)pan;
+- (void)addPanGestureToViews:(NSArray *)viewArray;
+
 @end
 
 @implementation MapViewController
@@ -28,6 +37,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self addPanGestureToViews:@[self.car1ImageView, self.car2ImageView, self.car3ImageView]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,4 +61,40 @@
     [mapView setRegion:region animated:YES];
 }
 
+#pragma mark - IBAction
+/*
+- (IBAction)dismissModalAction:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)toggleStickerViewAction:(id)sender
+{
+    if (self.stickerView.hidden) {
+        [self.toggleStickerButton setTitle:NSLocalizedString(@"Reset", nil)
+                                  forState:UIControlStateNormal];
+    } else {
+        [self.toggleStickerButton setTitle:NSLocalizedString(@"Add stikers", nil)
+                                  forState:UIControlStateNormal];
+    }
+    self.stickerView.hidden = !self.stickerView.hidden;
+    
+}
+*/
+
+#pragma mark - Utils
+- (void)addPanGestureToViews:(NSArray *)viewArray
+{
+    for (UIView *view in viewArray) {
+        UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                                                               action:@selector(handlePan:)];
+        [view addGestureRecognizer:panGestureRecognizer];
+    }
+}
+
+
+- (void)handlePan:(UIPanGestureRecognizer *)pan
+{
+    pan.view.center = [pan locationInView:pan.view.superview];
+}
 @end
