@@ -14,9 +14,9 @@
 		FB588345183A115F001D7E29 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB588344183A115F001D7E29 /* CoreGraphics.framework */; };
 		FB588347183A115F001D7E29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB588346183A115F001D7E29 /* UIKit.framework */; };
 		FB58834F183A115F001D7E29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB58834E183A115F001D7E29 /* main.m */; };
-		FB588353183A115F001D7E29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB588352183A115F001D7E29 /* AppDelegate.m */; };
+		FB588353183A115F001D7E29 /* DeclarationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB588352183A115F001D7E29 /* DeclarationAppDelegate.m */; };
 		FB588356183A115F001D7E29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB588354183A115F001D7E29 /* Main.storyboard */; };
-		FB588359183A115F001D7E29 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB588358183A115F001D7E29 /* ViewController.m */; };
+		FB588359183A115F001D7E29 /* DeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB588358183A115F001D7E29 /* DeclarationViewController.m */; };
 		FB58835B183A115F001D7E29 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB58835A183A115F001D7E29 /* Images.xcassets */; };
 		FB588362183A115F001D7E29 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB588361183A115F001D7E29 /* XCTest.framework */; };
 		FB588363183A115F001D7E29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB588342183A115F001D7E29 /* Foundation.framework */; };
@@ -46,7 +46,7 @@
 		D2AE711B183AB37600551ECC /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		FB526A52183BA3E3007AB734 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		FB526A53183BA3E3007AB734 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		FB526A5C183CF330007AB734 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FB526A5C183CF330007AB734 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB526A61183CF3FD007AB734 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB58833F183A115F001D7E29 /* Declaration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Declaration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB588342183A115F001D7E29 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,10 +55,10 @@
 		FB58834A183A115F001D7E29 /* Declaration-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Declaration-Info.plist"; sourceTree = "<group>"; };
 		FB58834E183A115F001D7E29 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FB588350183A115F001D7E29 /* Declaration-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Declaration-Prefix.pch"; sourceTree = "<group>"; };
-		FB588351183A115F001D7E29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		FB588352183A115F001D7E29 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FB588357183A115F001D7E29 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FB588358183A115F001D7E29 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FB588351183A115F001D7E29 /* DeclarationAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeclarationAppDelegate.h; sourceTree = "<group>"; };
+		FB588352183A115F001D7E29 /* DeclarationAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeclarationAppDelegate.m; sourceTree = "<group>"; };
+		FB588357183A115F001D7E29 /* DeclarationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeclarationViewController.h; sourceTree = "<group>"; };
+		FB588358183A115F001D7E29 /* DeclarationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeclarationViewController.m; sourceTree = "<group>"; };
 		FB58835A183A115F001D7E29 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FB588360183A115F001D7E29 /* DeclarationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeclarationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB588361183A115F001D7E29 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -138,23 +138,23 @@
 		FB588348183A115F001D7E29 /* Declaration */ = {
 			isa = PBXGroup;
 			children = (
-				FB526A52183BA3E3007AB734 /* UIImage+ImageEffects.h */,
-				FB526A53183BA3E3007AB734 /* UIImage+ImageEffects.m */,
-				FB588351183A115F001D7E29 /* AppDelegate.h */,
-				FB588352183A115F001D7E29 /* AppDelegate.m */,
+				FB588351183A115F001D7E29 /* DeclarationAppDelegate.h */,
+				FB588352183A115F001D7E29 /* DeclarationAppDelegate.m */,
 				FB588354183A115F001D7E29 /* Main.storyboard */,
-				FB588357183A115F001D7E29 /* ViewController.h */,
-				FB588358183A115F001D7E29 /* ViewController.m */,
 				FB58835A183A115F001D7E29 /* Images.xcassets */,
 				FB588349183A115F001D7E29 /* Supporting Files */,
-				FB588379183A1881001D7E29 /* FormViewController.h */,
-				FB58837A183A1881001D7E29 /* FormViewController.m */,
 				FB58837C183A2850001D7E29 /* UITextView+Utils.h */,
 				FB58837D183A2850001D7E29 /* UITextView+Utils.m */,
 				FB58837F183A2CC7001D7E29 /* UIColor+Utils.h */,
 				FB588380183A2CC7001D7E29 /* UIColor+Utils.m */,
 				FB588385183A70E9001D7E29 /* NSDate+Utils.h */,
 				FB588386183A70E9001D7E29 /* NSDate+Utils.m */,
+				FB526A52183BA3E3007AB734 /* UIImage+ImageEffects.h */,
+				FB526A53183BA3E3007AB734 /* UIImage+ImageEffects.m */,
+				FB588357183A115F001D7E29 /* DeclarationViewController.h */,
+				FB588358183A115F001D7E29 /* DeclarationViewController.m */,
+				FB588379183A1881001D7E29 /* FormViewController.h */,
+				FB58837A183A1881001D7E29 /* FormViewController.m */,
 				FB588388183A764B001D7E29 /* PageViewController.h */,
 				FB588389183A764B001D7E29 /* PageViewController.m */,
 				FB58838B183A791C001D7E29 /* PhotoViewController.h */,
@@ -291,9 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB58838A183A764B001D7E29 /* PageViewController.m in Sources */,
-				FB588359183A115F001D7E29 /* ViewController.m in Sources */,
+				FB588359183A115F001D7E29 /* DeclarationViewController.m in Sources */,
 				FB588381183A2CC7001D7E29 /* UIColor+Utils.m in Sources */,
-				FB588353183A115F001D7E29 /* AppDelegate.m in Sources */,
+				FB588353183A115F001D7E29 /* DeclarationAppDelegate.m in Sources */,
 				FB526A54183BA3E3007AB734 /* UIImage+ImageEffects.m in Sources */,
 				FB588387183A70E9001D7E29 /* NSDate+Utils.m in Sources */,
 				FB58837B183A1881001D7E29 /* FormViewController.m in Sources */,

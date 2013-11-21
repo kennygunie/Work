@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ViewController.h
 //  Declaration
 //
 //  Created by Kien Nguyen on 18/11/2013.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface DeclarationViewController : UIViewController
 
-@property (strong, nonatomic) UIWindow *window;
+//- (IBAction)drawPlanAction:(id)sender;
 
 @end

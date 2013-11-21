@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Kien Nguyen. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DeclarationViewController.h"
 #import "FormViewController.h"
 #import "PageViewController.h"
 #import "MapViewController.h"
@@ -14,7 +14,7 @@
 
 @import MapKit;
 
-@interface ViewController ()
+@interface DeclarationViewController ()
 
 @property (weak, nonatomic) FormViewController *formViewController;
 @property (strong, nonatomic) MapViewController *mapViewController;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation ViewController
+@implementation DeclarationViewController
 
 - (void)viewDidLoad
 {
@@ -65,7 +65,7 @@
     } else if ([[segue identifier] isEqualToString:@"PageViewController"]) {
         self.pageViewController = [segue destinationViewController];
         self.pageViewController.pageDidLoadImage = ^(UIImage *image) {
-            self.backgroundImageView.image = [image applyLightEffect];
+            self.backgroundImageView.image = [image applyExtraLightEffect];
         };
     } else if ([[segue identifier] isEqualToString:@"MapViewController"]) {
         self.mapViewController = [segue destinationViewController];

@@ -12,7 +12,7 @@
 #import "NSDate+Utils.h"
 
 
-#define DESCRIPTION_TEXT_HOLDER @"Description détaillée"
+#define DESCRIPTION_TEXT_HOLDER NSLocalizedString(@"(Detail description)", nil)
 
 @interface FormViewController ()
 
@@ -181,8 +181,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (textView == self.descriptionTextView) {
         
         if ([textView.text isEqualToString:DESCRIPTION_TEXT_HOLDER]) {
-            [textView setText:nil
-                        color:[UIColor whiteColor]];
+            [textView setText:nil];
         }
         
         [self.tableView beginUpdates];
@@ -194,8 +193,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (textView == self.descriptionTextView) {
         if ([textView.text length] == 0) {
-            [textView setText:DESCRIPTION_TEXT_HOLDER
-                        color:[UIColor lightGrayColor]];
+            [textView setText:DESCRIPTION_TEXT_HOLDER];
         }
         [self.tableView beginUpdates];
         [self.tableView endUpdates];
