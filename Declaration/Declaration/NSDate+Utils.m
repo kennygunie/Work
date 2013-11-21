@@ -12,7 +12,7 @@
 
 - (NSString *)dateString
 {
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     [dateFormatter setLocale:[NSLocale currentLocale]];

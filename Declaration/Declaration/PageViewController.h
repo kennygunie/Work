@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class Declaration;
+
 @interface PageViewController : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
-
 @property (nonatomic, copy) void (^pageDidLoadImage)(UIImage *image);
-
+@property (weak, nonatomic) Declaration *declaration;
 @end

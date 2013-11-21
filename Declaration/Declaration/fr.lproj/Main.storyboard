@@ -41,7 +41,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="XsS-yQ-xMH" kind="embed" id="SB1-b1-8lj"/>
+                                    <segue destination="XsS-yQ-xMH" kind="embed" identifier="MapViewController" id="SB1-b1-8lj"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connecté en tant que dupont@email.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb1-1I-Rrf">
@@ -99,6 +99,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="30"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="nay-SH-Y5a" id="Snr-IX-OGS"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -191,11 +194,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="dateCell" destination="tuo-Dm-vO2" id="v87-F1-8Lz"/>
-                        <outlet property="dateLabel" destination="bX0-sv-CRI" id="40k-Mt-p9r"/>
-                        <outlet property="datePickerCell" destination="V0Y-MT-RRZ" id="hWu-1H-Fo3"/>
-                        <outlet property="descriptionCell" destination="5NT-I3-cvo" id="WXQ-4F-9hw"/>
-                        <outlet property="descriptionTextView" destination="WZr-ZL-De3" id="RQy-ep-STY"/>
+                        <outlet property="dateCell" destination="tuo-Dm-vO2" id="N0V-co-ZHr"/>
+                        <outlet property="dateLabel" destination="bX0-sv-CRI" id="yxh-1j-klT"/>
+                        <outlet property="datePicker" destination="O4X-Nl-DvU" id="Gcz-km-Spy"/>
+                        <outlet property="datePickerCell" destination="V0Y-MT-RRZ" id="nvG-sd-pND"/>
+                        <outlet property="detailCell" destination="5NT-I3-cvo" id="1ov-wd-vsj"/>
+                        <outlet property="detailTextView" destination="WZr-ZL-De3" id="YO3-Ac-Ij8"/>
+                        <outlet property="titleTextField" destination="hBE-Fb-nqk" id="wAf-u4-wwg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHr-ax-aNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -308,6 +313,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="car1ImageView" destination="eEC-UE-Mgu" id="WmK-gZ-aWC"/>
                         <outlet property="car2ImageView" destination="oza-1P-buv" id="ldq-Lf-0GC"/>
                         <outlet property="car3ImageView" destination="Tt3-FW-5xe" id="Q00-fW-36Y"/>
+                        <outlet property="mapView" destination="TsK-zv-ae4" id="D7Z-bf-6QN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDN-e3-io3" userLabel="First Responder" sceneMemberID="firstResponder"/>

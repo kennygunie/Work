@@ -10,10 +10,8 @@
 #import "PhotoViewController.h"
 
 @interface PageViewController ()
-
 @property (readonly, strong, nonatomic) NSArray *viewControllerArray;
 @property NSUInteger currentIndex;
-
 @end
 
 @implementation PageViewController

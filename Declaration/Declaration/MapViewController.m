@@ -7,19 +7,13 @@
 //
 
 #import "MapViewController.h"
+#import "Declaration.h"
 @import MapKit;
 
 @interface MapViewController ()
-
-@property (weak, nonatomic) IBOutlet UIView *stickerView;
-@property (weak, nonatomic) IBOutlet UIButton *toggleStickerButton;
 @property (weak, nonatomic) IBOutlet UIImageView *car1ImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *car2ImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *car3ImageView;
-
-- (void)handlePan:(UIPanGestureRecognizer *)pan;
-- (void)addPanGestureToViews:(NSArray *)viewArray;
-
 @end
 
 @implementation MapViewController
@@ -59,6 +53,7 @@
     region.span = span;
     region.center = location;
     [mapView setRegion:region animated:YES];
+    self.declaration.currentLocation = location;
 }
 
 #pragma mark - IBAction

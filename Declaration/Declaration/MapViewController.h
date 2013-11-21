@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MKMapView;
+@class MKMapView, Declaration;
 
 @interface MapViewController : UIViewController
-
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
-//- (IBAction)dismissModalAction:(id)sender;
-//- (IBAction)toggleStickerViewAction:(id)sender;
-
+@property (weak, nonatomic) Declaration *declaration;
 @end

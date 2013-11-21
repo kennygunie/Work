@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D2AE711C183AB37600551ECC /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AE711B183AB37600551ECC /* MapViewController.m */; };
+		FB24DEB6183E37E4003262CB /* Declaration.m in Sources */ = {isa = PBXBuildFile; fileRef = FB24DEB5183E37E4003262CB /* Declaration.m */; };
 		FB526A54183BA3E3007AB734 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FB526A53183BA3E3007AB734 /* UIImage+ImageEffects.m */; };
 		FB526A58183CF2D7007AB734 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB526A5A183CF2D7007AB734 /* Localizable.strings */; };
 		FB588343183A115F001D7E29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB588342183A115F001D7E29 /* Foundation.framework */; };
@@ -44,6 +45,9 @@
 /* Begin PBXFileReference section */
 		D2AE711A183AB37600551ECC /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		D2AE711B183AB37600551ECC /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		FB24DEB4183E37E4003262CB /* Declaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Declaration.h; sourceTree = "<group>"; };
+		FB24DEB5183E37E4003262CB /* Declaration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Declaration.m; sourceTree = "<group>"; };
+		FB24DEB8183E6C1D003262CB /* UpdateDeclaration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateDeclaration.h; sourceTree = "<group>"; };
 		FB526A52183BA3E3007AB734 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		FB526A53183BA3E3007AB734 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		FB526A5C183CF330007AB734 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB24DEB3183E378B003262CB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB24DEB4183E37E4003262CB /* Declaration.h */,
+				FB24DEB5183E37E4003262CB /* Declaration.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FB588336183A115F001D7E29 = {
 			isa = PBXGroup;
 			children = (
@@ -138,11 +151,12 @@
 		FB588348183A115F001D7E29 /* Declaration */ = {
 			isa = PBXGroup;
 			children = (
+				FB588349183A115F001D7E29 /* Supporting Files */,
+				FB24DEB3183E378B003262CB /* Models */,
 				FB588351183A115F001D7E29 /* DeclarationAppDelegate.h */,
 				FB588352183A115F001D7E29 /* DeclarationAppDelegate.m */,
 				FB588354183A115F001D7E29 /* Main.storyboard */,
 				FB58835A183A115F001D7E29 /* Images.xcassets */,
-				FB588349183A115F001D7E29 /* Supporting Files */,
 				FB58837C183A2850001D7E29 /* UITextView+Utils.h */,
 				FB58837D183A2850001D7E29 /* UITextView+Utils.m */,
 				FB58837F183A2CC7001D7E29 /* UIColor+Utils.h */,
@@ -161,6 +175,7 @@
 				FB58838C183A791C001D7E29 /* PhotoViewController.m */,
 				D2AE711A183AB37600551ECC /* MapViewController.h */,
 				D2AE711B183AB37600551ECC /* MapViewController.m */,
+				FB24DEB8183E6C1D003262CB /* UpdateDeclaration.h */,
 			);
 			path = Declaration;
 			sourceTree = "<group>";
@@ -296,6 +311,7 @@
 				FB588353183A115F001D7E29 /* DeclarationAppDelegate.m in Sources */,
 				FB526A54183BA3E3007AB734 /* UIImage+ImageEffects.m in Sources */,
 				FB588387183A70E9001D7E29 /* NSDate+Utils.m in Sources */,
+				FB24DEB6183E37E4003262CB /* Declaration.m in Sources */,
 				FB58837B183A1881001D7E29 /* FormViewController.m in Sources */,
 				FB58838D183A791C001D7E29 /* PhotoViewController.m in Sources */,
 				D2AE711C183AB37600551ECC /* MapViewController.m in Sources */,

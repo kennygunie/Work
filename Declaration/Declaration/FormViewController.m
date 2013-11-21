@@ -10,21 +10,18 @@
 #import "UITextView+Utils.h"
 #import "UIColor+Utils.h"
 #import "NSDate+Utils.h"
-
-
-#define DESCRIPTION_TEXT_HOLDER NSLocalizedString(@"(Detail description)", nil)
+#import "Declaration.h"
 
 @interface FormViewController ()
 
 @property BOOL showDatePicker;
-
-@property (weak, nonatomic) IBOutlet UITableViewCell *descriptionCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *detailCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *dateCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *datePickerCell;
-
-- (IBAction)updateDate:(id)sender;
-
-
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UITextView *detailTextView;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @end
 
 @implementation FormViewController
@@ -42,16 +39,9 @@
 {
     [super viewDidLoad];
     self.showDatePicker = NO;
-    self.dateLabel.text = [[NSDate new] dateString];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    //[self.descriptionTextView setText:DESCRIPTION_TEXT_HOLDER
-    //                            color:[UIColor placeHolderTextColor]];
+    [self setupDateCellWithDate:self.declaration.date];
+    self.titleTextField.placeholder = self.titlePlaceHolder;
+    self.detailTextView.text = self.declaration.detail.length > 0 ? self.declaration.detail : self.detailPlaceHolder;
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,10 +64,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     CGFloat height = [super tableView:tableView heightForRowAtIndexPath:indexPath];
     
-    if(cell == self.descriptionCell) {
+    if(cell == self.detailCell) {
         //if (self.selectedIndexPath && self.selectedIndexPath.row == indexPath.row) {
-        if ([self.descriptionTextView isFirstResponder]
-            || ([self.descriptionTextView.text length] > 0 && ![self.descriptionTextView.text isEqualToString:DESCRIPTION_TEXT_HOLDER])) {
+        if ([self.detailTextView isFirstResponder]) {
             return 216.0; //set the hidden cell's height to 0
         }
     } else if (cell == self.datePickerCell) {
@@ -93,6 +82,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (self.dateCell == cell) {
         self.showDatePicker = !self.showDatePicker;
+        [self.detailTextView resignFirstResponder];
+        [self.titleTextField resignFirstResponder];
         [self.tableView beginUpdates];
         [self.tableView endUpdates];
     }
@@ -178,12 +169,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if (textView == self.descriptionTextView) {
-        
-        if ([textView.text isEqualToString:DESCRIPTION_TEXT_HOLDER]) {
+    if (textView == self.detailTextView) {
+        if ([textView.text isEqualToString:self.detailPlaceHolder]) {
             [textView setText:nil];
         }
-        
         [self.tableView beginUpdates];
         [self.tableView endUpdates];
     }
@@ -191,9 +180,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    if (textView == self.descriptionTextView) {
-        if ([textView.text length] == 0) {
-            [textView setText:DESCRIPTION_TEXT_HOLDER];
+    if (textView == self.detailTextView) {
+        if (textView.text.length == 0) {
+            textView.text = self.detailPlaceHolder;
         }
         [self.tableView beginUpdates];
         [self.tableView endUpdates];
@@ -202,12 +191,40 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 #pragma mark - Utils
 
+- (NSString *)titlePlaceHolder
+{
+    return NSLocalizedString(@"(Declaration title)" , nil);
+}
+
+- (NSString *)detailPlaceHolder
+{
+    return NSLocalizedString(@"(Declaration detail)" , nil);
+}
+
+- (void)setupDateCellWithDate:(NSDate *)date
+{
+    self.datePicker.date = date;
+    self.dateLabel.text = [date dateString];
+}
 
 #pragma mark - IBAction
-- (IBAction)updateDate:(id)sender
+- (IBAction)updateDate:(UIDatePicker *)datePicker
 {
-    UIDatePicker *datePicker = (UIDatePicker *)sender;
     self.dateLabel.text = [datePicker.date dateString];
-    
+    self.declaration.date = datePicker.date;
+}
+
+#pragma mark - UpdateDeclaration Protocole
+
+- (void)updateDeclaration
+{
+    self.declaration.title = self.titleTextField.text;
+    if ([self.detailTextView.text isEqualToString:self.detailPlaceHolder]) {
+        self.declaration.detail = @"";
+    } else {
+        self.declaration.detail = self.detailTextView.text;
+    }
+    [self.titleTextField resignFirstResponder];
+    [self.detailTextView resignFirstResponder];
 }
 @end
