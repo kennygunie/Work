@@ -18,9 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *detailCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *dateCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *datePickerCell;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property (weak, nonatomic) IBOutlet UITextView *detailTextView;
-@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @end
 
@@ -86,6 +85,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         [self.titleTextField resignFirstResponder];
         [self.tableView beginUpdates];
         [self.tableView endUpdates];
+
     }
 }
 
@@ -227,4 +227,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     [self.titleTextField resignFirstResponder];
     [self.detailTextView resignFirstResponder];
 }
+
+
 @end

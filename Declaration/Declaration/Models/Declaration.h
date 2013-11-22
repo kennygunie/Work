@@ -9,14 +9,19 @@
 #import <Foundation/Foundation.h>
 @import CoreLocation;
 
+@class Car;
+
 @interface Declaration : NSObject
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *detail;
 @property (strong, nonatomic) NSDate *date;
-@property (strong, nonatomic) NSMutableArray *photos;
+@property (strong, nonatomic, readonly) NSArray *photos; // of UIImage
+@property (strong, nonatomic, readonly) NSSet *cars; // of Car
 @property (nonatomic) CLLocationCoordinate2D currentLocation;
 
-- (void)addPhoto:(UIImage *)photo;
+- (void)addPhotosObject:(UIImage *)photo;
+- (void)addCarsObject:(Car *)car;
+- (void)removeCarsObject:(Car *)car;
 - (void)submit;
 @end

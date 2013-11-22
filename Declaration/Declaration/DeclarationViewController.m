@@ -27,18 +27,15 @@
 
 - (Declaration *)declaration
 {
-    //return _declaration ? _declaration : [[Declaration alloc] init];
-    if (_declaration == nil) {
-        _declaration = [[Declaration alloc] init];
-    }
-    return _declaration;
+    
+    return _declaration ? _declaration : (_declaration = [[Declaration alloc] init]);
     
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +55,7 @@
 {
     [self.formViewController updateDeclaration];
     [self.declaration submit];
+    
     /*
     NSLog(@"title=%@", self.formViewController.titleTextField.text);
     NSLog(@"date=%@", self.formViewController.dateLabel.text);

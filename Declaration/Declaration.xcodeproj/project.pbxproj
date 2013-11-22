@@ -30,6 +30,7 @@
 		FB588387183A70E9001D7E29 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FB588386183A70E9001D7E29 /* NSDate+Utils.m */; };
 		FB58838A183A764B001D7E29 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB588389183A764B001D7E29 /* PageViewController.m */; };
 		FB58838D183A791C001D7E29 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C183A791C001D7E29 /* PhotoViewController.m */; };
+		FB836C48183FA1F6002A86AC /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = FB836C47183FA1F6002A86AC /* Car.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		FB588389183A764B001D7E29 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		FB58838B183A791C001D7E29 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		FB58838C183A791C001D7E29 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		FB836C46183FA1F6002A86AC /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		FB836C47183FA1F6002A86AC /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 			children = (
 				FB24DEB4183E37E4003262CB /* Declaration.h */,
 				FB24DEB5183E37E4003262CB /* Declaration.m */,
+				FB836C46183FA1F6002A86AC /* Car.h */,
+				FB836C47183FA1F6002A86AC /* Car.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				FB588359183A115F001D7E29 /* DeclarationViewController.m in Sources */,
 				FB588381183A2CC7001D7E29 /* UIColor+Utils.m in Sources */,
 				FB588353183A115F001D7E29 /* DeclarationAppDelegate.m in Sources */,
+				FB836C48183FA1F6002A86AC /* Car.m in Sources */,
 				FB526A54183BA3E3007AB734 /* UIImage+ImageEffects.m in Sources */,
 				FB588387183A70E9001D7E29 /* NSDate+Utils.m in Sources */,
 				FB24DEB6183E37E4003262CB /* Declaration.m in Sources */,

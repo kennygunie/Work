@@ -51,10 +51,10 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tf-3N-N9V">
+                            <button alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tf-3N-N9V">
                                 <rect key="frame" x="633" y="20" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Valider">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -269,50 +269,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <outlet property="delegate" destination="XsS-yQ-xMH" id="bZl-Ca-hQq"/>
                                 </connections>
                             </mapView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="eEC-UE-Mgu">
-                                <rect key="frame" x="215" y="76" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="b6I-1v-Wv1"/>
-                                </constraints>
-                            </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="oza-1P-buv">
-                                <rect key="frame" x="307" y="201" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="LHK-zi-amj"/>
-                                </constraints>
-                            </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="Tt3-FW-5xe">
-                                <rect key="frame" x="459" y="76" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="YGN-O8-MwA"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WFq-CJ-3Wj" firstAttribute="top" secondItem="Tt3-FW-5xe" secondAttribute="bottom" constant="236" id="3ZA-iR-TDZ"/>
-                            <constraint firstItem="eEC-UE-Mgu" firstAttribute="top" secondItem="Tt3-FW-5xe" secondAttribute="top" id="4kj-bp-ymO"/>
-                            <constraint firstAttribute="trailing" secondItem="Tt3-FW-5xe" secondAttribute="trailing" constant="169" id="7Xr-Zk-pqr"/>
                             <constraint firstAttribute="bottom" secondItem="TsK-zv-ae4" secondAttribute="bottom" constant="20" symbolic="YES" id="D95-nu-4LN"/>
-                            <constraint firstItem="oza-1P-buv" firstAttribute="top" secondItem="eEC-UE-Mgu" secondAttribute="bottom" constant="25" id="MNm-Gu-UP3"/>
-                            <constraint firstItem="eEC-UE-Mgu" firstAttribute="top" secondItem="wbE-ql-vPx" secondAttribute="bottom" constant="76" id="Zgx-mD-ahP"/>
                             <constraint firstAttribute="trailing" secondItem="TsK-zv-ae4" secondAttribute="trailing" constant="20" symbolic="YES" id="fyQ-H8-3w1"/>
-                            <constraint firstItem="oza-1P-buv" firstAttribute="leading" secondItem="BwU-jy-iDF" secondAttribute="leading" constant="307" id="g9j-On-3QI"/>
-                            <constraint firstItem="Tt3-FW-5xe" firstAttribute="bottom" secondItem="eEC-UE-Mgu" secondAttribute="bottom" id="hcf-gi-3eM"/>
                             <constraint firstItem="TsK-zv-ae4" firstAttribute="leading" secondItem="BwU-jy-iDF" secondAttribute="leading" constant="20" symbolic="YES" id="i6y-DI-RDf"/>
                             <constraint firstItem="TsK-zv-ae4" firstAttribute="top" secondItem="BwU-jy-iDF" secondAttribute="top" constant="20" symbolic="YES" id="lQ4-lE-pjc"/>
-                            <constraint firstItem="eEC-UE-Mgu" firstAttribute="leading" secondItem="BwU-jy-iDF" secondAttribute="leading" constant="215" id="q2h-un-Hxo"/>
-                            <constraint firstItem="WFq-CJ-3Wj" firstAttribute="top" secondItem="oza-1P-buv" secondAttribute="bottom" constant="111" id="z16-yV-Ryt"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <connections>
-                        <outlet property="car1ImageView" destination="eEC-UE-Mgu" id="WmK-gZ-aWC"/>
-                        <outlet property="car2ImageView" destination="oza-1P-buv" id="ldq-Lf-0GC"/>
-                        <outlet property="car3ImageView" destination="Tt3-FW-5xe" id="Q00-fW-36Y"/>
                         <outlet property="mapView" destination="TsK-zv-ae4" id="D7Z-bf-6QN"/>
                     </connections>
                 </viewController>
@@ -321,11 +288,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="354" y="319"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="1" width="256" height="256"/>
-        <image name="2" width="256" height="256"/>
-        <image name="3" width="256" height="256"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
         <simulatedOrientationMetrics key="orientation"/>

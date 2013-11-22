@@ -9,34 +9,56 @@
 #import "Declaration.h"
 #import "NSDate+Utils.h"
 
+@interface Declaration ()
+@property (strong, nonatomic, readwrite) NSArray *photos;
+@property (strong, nonatomic, readwrite) NSSet *cars;
+@end
+
 @implementation Declaration
 
 #pragma mark - Getters & setters
 
 - (NSDate *)date
 {
-    if (_date == nil) {
-        _date = [[NSDate alloc] init];
-    }
-    return _date;
+    return _date? _date : (_date = [[NSDate alloc] init]);
 }
-
-- (NSMutableArray *)photos
-{
-    if (_photos == nil) {
-        _photos = [[NSMutableArray alloc] init];
-    }
-    return _photos;
-}
-
 
 #pragma mark - API
 
-
-- (void)addPhoto:(UIImage *)photo
+#pragma mark Photo
+- (void)addPhotosObject:(UIImage *)photo
 {
-    [self.photos addObject:photo];
+    NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
+    if ([_photos count] > 0) {
+        [mutableArray addObjectsFromArray:_photos];
+    }
+    [mutableArray addObject:photo];
+    _photos = mutableArray;
 }
+
+#pragma mark Car
+
+
+- (void)addCarsObject:(Car *)car
+{
+    NSMutableSet *mutableSet = [[NSMutableSet alloc] init];
+    if ([_cars count] > 0) {
+        [mutableSet unionSet:_cars];
+    }
+    [mutableSet addObject:car];
+    _cars = mutableSet;
+}
+
+- (void)removeCarsObject:(Car *)car
+{
+    if ([_cars count] > 0) {
+        NSMutableSet *mutableSet = [[NSMutableSet alloc] initWithSet:_cars];
+        [mutableSet removeObject:car];
+        _cars = mutableSet;
+    }
+}
+
+#pragma mark Declaration
 
 - (void)submit
 {
