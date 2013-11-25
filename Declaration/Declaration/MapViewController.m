@@ -8,13 +8,13 @@
 
 #import "MapViewController.h"
 #import "Declaration.h"
+#import "AnnotationTableViewController.h"
+#import "Car.h"
 @import MapKit;
 
 @interface MapViewController ()
-@property (strong, nonatomic) NSArray *imageArray; // of UIImage
-@property (weak, nonatomic) IBOutlet UIImageView *car1ImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *car2ImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *car3ImageView;
+@property (strong, nonatomic) UIPopoverController *annotationPopoverController;
+@property (strong, nonatomic) MKPointAnnotation *currentAnnotation;
 @end
 
 @implementation MapViewController
@@ -46,6 +46,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Getters & Setters
+
+- (UIPopoverController *)annotationPopoverController
+{
+    if (_annotationPopoverController == nil) {
+        UIStoryboard *storyboard = self.storyboard;
+        AnnotationTableViewController *annotationTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"AnnotationTableViewController"];
+        annotationTableViewController.tableViewDidSelect = ^(Car *car) {
+            NSLog(@"%@", car.model);
+        };
+        _annotationPopoverController = [[UIPopoverController alloc] initWithContentViewController:annotationTableViewController];
+        _annotationPopoverController.delegate = self;
+    }
+    return _annotationPopoverController;
+}
+
+#pragma mark - UIPopoverControllerDelegate
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    [self.mapView removeAnnotation:self.currentAnnotation];
+}
+
 #pragma mark - MKMapView delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -64,7 +86,7 @@
 }
 
 /*
-#pragma mark - IBAction
+ #pragma mark - IBAction
  - (IBAction)dismissModalAction:(id)sender
  {
  [self dismissViewControllerAnimated:YES completion:nil];
@@ -84,11 +106,31 @@
  }
  */
 
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    [self.annotationPopoverController presentPopoverFromRect:view.frame
+                                                      inView:mapView
+                                    permittedArrowDirections:UIPopoverArrowDirectionAny
+                                                    animated:YES];
+    
+}
+
+
 #pragma mark - Utils
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)gesture
 {
+    if (gesture.state != UIGestureRecognizerStateBegan) return;
     
+    CGPoint touchPoint = [gesture locationInView:self.mapView];
+    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint
+                                                      toCoordinateFromView:self.mapView];
+    
+    //add pin where user touched down...
+    self.currentAnnotation = [[MKPointAnnotation alloc] init];
+    self.currentAnnotation.coordinate = touchMapCoordinate;
+    [self.mapView addAnnotation:self.currentAnnotation];
 }
 
 - (void)addRotationGestureToViews:(NSArray *)viewArray

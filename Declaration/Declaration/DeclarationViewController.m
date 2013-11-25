@@ -70,18 +70,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"FormViewController"]) {
-        self.formViewController = [segue destinationViewController];
+        self.formViewController = segue.destinationViewController;
         self.formViewController.declaration = self.declaration;
     } else if ([[segue identifier] isEqualToString:@"PageViewController"]) {
         
-        self.pageViewController = [segue destinationViewController];
+        self.pageViewController = segue.destinationViewController;
         __weak typeof(self) weakSelf = self;
         self.pageViewController.pageDidLoadImage = ^(UIImage *image) {
             weakSelf.backgroundImageView.image = [image applyExtraLightEffect];
         };
         self.pageViewController.declaration = self.declaration;
     } else if ([[segue identifier] isEqualToString:@"MapViewController"]) {
-        self.mapViewController = [segue destinationViewController];
+        self.mapViewController = segue.destinationViewController;
         self.mapViewController.declaration = self.declaration;
     }
 }

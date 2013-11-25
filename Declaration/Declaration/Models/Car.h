@@ -11,7 +11,9 @@
 
 @interface Car : NSObject
 
-@property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSString *model;
+@property (strong, nonatomic) NSString *imageName;
+@property (strong, nonatomic, readonly) UIImage *image;
 @property (nonatomic) CLLocationCoordinate2D location;
 @property float angle;
 

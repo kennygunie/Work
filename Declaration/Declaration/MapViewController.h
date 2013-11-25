@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class MKMapView, Declaration;
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController <UIPopoverControllerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) Declaration *declaration;
 @end
