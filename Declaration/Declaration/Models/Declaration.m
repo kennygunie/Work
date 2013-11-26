@@ -67,7 +67,7 @@
 
 - (NSString *)description
 {
-    return [[NSString alloc] initWithFormat:@"\nDeclaration {\n\tTitle: %@\n\tDescription: %@\n\tDate: %@\n\tPhotos count: %i\n\tLatitude: %f\n\tLongitude: %f\n}", self.title, self.detail, [self.date dateString], [self.photos count], self.currentLocation.latitude, self.currentLocation.longitude];
+    return [[NSString alloc] initWithFormat:@"\nDeclaration {\n\tTitle: %@\n\tDescription: %@\n\tDate: %@\n\tPhotos count: %i\n\tLatitude: %f\n\tLongitude: %f\n}", self.title, self.detail, [self.date dateString], [self.photos count], self.currentCoordinate.latitude, self.currentCoordinate.longitude];
 }
 
 @end

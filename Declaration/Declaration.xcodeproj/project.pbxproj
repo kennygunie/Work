@@ -32,6 +32,7 @@
 		FB58838A183A764B001D7E29 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB588389183A764B001D7E29 /* PageViewController.m */; };
 		FB58838D183A791C001D7E29 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C183A791C001D7E29 /* PhotoViewController.m */; };
 		FB836C48183FA1F6002A86AC /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = FB836C47183FA1F6002A86AC /* Car.m */; };
+		FBF034CF1844ABF700DF83B1 /* AnnotationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF034CE1844ABF700DF83B1 /* AnnotationTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		FB836C46183FA1F6002A86AC /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		FB836C47183FA1F6002A86AC /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		FBF034CB1843B42300DF83B1 /* UpdateDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateDeclaration.h; sourceTree = "<group>"; };
+		FBF034CD1844ABF700DF83B1 /* AnnotationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationTableViewCell.h; sourceTree = "<group>"; };
+		FBF034CE1844ABF700DF83B1 /* AnnotationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +189,8 @@
 				FB2042F9184388DE00E1D46A /* AnnotationTableViewController.h */,
 				FB2042FA184388DE00E1D46A /* AnnotationTableViewController.m */,
 				FBF034CB1843B42300DF83B1 /* UpdateDeclaration.h */,
+				FBF034CD1844ABF700DF83B1 /* AnnotationTableViewCell.h */,
+				FBF034CE1844ABF700DF83B1 /* AnnotationTableViewCell.m */,
 			);
 			path = Declaration;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				D2AE711C183AB37600551ECC /* MapViewController.m in Sources */,
 				FB58837E183A2850001D7E29 /* UITextView+Utils.m in Sources */,
 				FB58834F183A115F001D7E29 /* main.m in Sources */,
+				FBF034CF1844ABF700DF83B1 /* AnnotationTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +393,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -427,6 +434,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;

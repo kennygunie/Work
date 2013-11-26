@@ -7,7 +7,9 @@
 //
 
 #import "AnnotationTableViewController.h"
+#import "AnnotationTableViewCell.h"
 #import "Car.h"
+
 
 @interface AnnotationTableViewController ()
 @property (strong, nonatomic) NSArray *dataSource; // of Car
@@ -71,22 +73,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"AnnotationCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
+    AnnotationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                             forIndexPath:indexPath];
     Car *car = self.dataSource[indexPath.row];
     
-    UILabel *titleLabel = (UILabel *)[cell viewWithTag:10];
-    titleLabel.text = car.model;
-    
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:11];
-    imageView.image = car.image;
+    cell.titleLabel.text = car.model;
+    cell.iconImageView.image = car.image;
     
     // Configure the cell...
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.tableViewDidSelect) {
         self.tableViewDidSelect(self.dataSource[indexPath.row]);

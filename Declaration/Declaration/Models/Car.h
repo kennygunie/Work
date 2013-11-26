@@ -14,7 +14,9 @@
 @property (strong, nonatomic) NSString *model;
 @property (strong, nonatomic) NSString *imageName;
 @property (strong, nonatomic, readonly) UIImage *image;
-@property (nonatomic) CLLocationCoordinate2D location;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
+@property (strong, nonatomic) NSString *geocoding;
+
 @property float angle;
 
 
