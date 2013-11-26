@@ -12,6 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *carImageView;
 @property (strong, nonatomic) NSNumber *pageNumber;
-@property (strong, nonatomic) NSString *imageName;
+@property (copy, nonatomic) NSString *imageName;
 
 @end

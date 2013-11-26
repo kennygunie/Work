@@ -14,6 +14,21 @@
 
 @implementation Car
 
+
+- (instancetype)initWithCar:(Car *)car
+{
+    self = [super init];
+    if (self) {
+        self.model = car.model;
+        self.image = car.image;
+        self.imageName = car.imageName;
+        self.coordinate = car.coordinate;
+        self.geocoding = car.geocoding;
+        self.angle = car.angle;
+    }
+    return self;
+}
+
 #pragma mark - Getters & Setters
 - (UIImage *)image
 {

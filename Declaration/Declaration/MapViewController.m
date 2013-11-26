@@ -10,13 +10,17 @@
 #import "Declaration.h"
 #import "AnnotationTableViewController.h"
 #import "Car.h"
+#import "CarAnnotation.h"
 @import MapKit;
+@import AddressBookUI;
 
 @interface MapViewController ()
 @property (strong, nonatomic) UIPopoverController *annotationPopoverController;
 //@property (strong, nonatomic) MKPointAnnotation *currentAnnotation;
 @property (assign, nonatomic) CLLocationCoordinate2D lastTouchMapCoordinate;
 @property (strong, nonatomic) AnnotationTableViewController *annotationTableViewController;
+@property (strong, nonatomic) CLGeocoder *geocoder;
+
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @end
 
@@ -51,6 +55,10 @@
 
 #pragma mark - Getters & Setters
 
+- (CLGeocoder *)geocoder
+{
+    return _geocoder ? _geocoder : (_geocoder = [[CLGeocoder alloc] init]);
+}
 
 - (AnnotationTableViewController *)annotationTableViewController
 {
@@ -59,13 +67,19 @@
         _annotationTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"AnnotationTableViewController"];
         __weak typeof(self) weakSelf = self;
         _annotationTableViewController.tableViewDidSelect = ^(Car *car) {
-            car.coordinate = weakSelf.lastTouchMapCoordinate;
-            NSLog(@"%@ lat=%f lng=%f", car.model, car.coordinate.latitude, car.coordinate.longitude);
-            [weakSelf.declaration addCarsObject:car];
-            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-            annotation.coordinate = car.coordinate;
-            annotation.subtitle = car.imageName;
+            Car *carCopy = [[Car alloc] initWithCar:car];
+            carCopy.coordinate = weakSelf.lastTouchMapCoordinate;
+            [weakSelf.declaration addCarsObject:carCopy];
+            
+            CarAnnotation *annotation = [[CarAnnotation alloc] init];
+            // For mapview delegate
+            annotation.coordinate = carCopy.coordinate;
+            annotation.title = carCopy.model;
+            annotation.subtitle = carCopy.geocoding;
+            // Keep data
+            annotation.car = carCopy;
             [weakSelf.mapView addAnnotation:annotation];
+            
             [weakSelf.annotationPopoverController dismissPopoverAnimated:YES];
             
         };
@@ -81,14 +95,6 @@
         _annotationPopoverController.delegate = self;
     }
     return _annotationPopoverController;
-}
-
-#pragma mark - UIPopoverControllerDelegate
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    //    if (self.currentAnnotation.title.length == 0) {
-    //        [self.mapView removeAnnotation:self.currentAnnotation];
-    //    }
 }
 
 #pragma mark - MKMapView delegate
@@ -130,27 +136,55 @@
  */
 
 
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    if ([view.annotation isKindOfClass:[CarAnnotation class]]) {
+        CarAnnotation *annotation = view.annotation;
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude
+                                                          longitude:annotation.coordinate.longitude];
+        [self.geocoder reverseGeocodeLocation:location
+                            completionHandler:^(NSArray *placemarks, NSError *error) {
+            CLPlacemark *placemark = [placemarks firstObject];
+            annotation.subtitle = ABCreateStringWithAddressDictionary(placemark.addressDictionary, NO);
+            annotation.car.geocoding = annotation.subtitle;
+        }];
+    }
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     MKAnnotationView* annotationView = nil;
-    if (annotation.subtitle.length > 0) {
-        static NSString* ident = @"carPin";
-        annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:ident];
-        if (annotationView == nil) {
-            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                          reuseIdentifier:ident];
-            annotationView.image = [UIImage imageNamed:annotation.subtitle]; // subtitle = car image name
-            CGRect f = annotationView.bounds;
-            f.size.height /= 3.0;
-            f.size.width /= 3.0;
-            annotationView.bounds = f;
-            annotationView.centerOffset = CGPointMake(0,-20);
-            annotationView.canShowCallout = YES;
+    if ([annotation isKindOfClass:[CarAnnotation class]]) {
+        CarAnnotation *carAnnotation = (CarAnnotation *)annotation;
+        if (carAnnotation.car.image) {
+            static NSString* ident = @"carPin";
+            annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:ident];
+            if (annotationView == nil) {
+                annotationView = [[MKAnnotationView alloc] initWithAnnotation:carAnnotation
+                                                              reuseIdentifier:ident];
+                annotationView.image = carAnnotation.car.image;
+                CGRect f = annotationView.bounds;
+                f.size.height /= 3.0;
+                f.size.width /= 3.0;
+                annotationView.bounds = f;
+                annotationView.centerOffset = CGPointMake(0,0);
+                annotationView.canShowCallout = YES;
+                annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            }
+            annotationView.annotation = annotation;
         }
-        annotationView.annotation = annotation;
     }
     return annotationView;
 }
 
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    if ([view.annotation isKindOfClass:[CarAnnotation class]]) {
+        CarAnnotation *carAnnotation = view.annotation;
+        [mapView removeAnnotation:view.annotation];
+        [self.declaration removeCarsObject:carAnnotation.car];
+    }
+}
 #pragma mark - Utils
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)gesture
@@ -160,18 +194,10 @@
     CGPoint touchPoint = [gesture locationInView:self.mapView];
     self.lastTouchMapCoordinate = [self.mapView convertPoint:touchPoint
                                         toCoordinateFromView:self.mapView];
-    
     [self.annotationPopoverController presentPopoverFromRect:CGRectMake(touchPoint.x, touchPoint.y, 1.0, 1.0)
                                                       inView:self.mapView
                                     permittedArrowDirections:UIPopoverArrowDirectionAny
                                                     animated:YES];
-    
-    
-    
-    //add pin where user touched down...
-    //self.currentAnnotation = [[MKPointAnnotation alloc] init];
-    //self.currentAnnotation.coordinate = touchMapCoordinate;
-    //[self.mapView addAnnotation:self.currentAnnotation];
 }
 
 - (void)addRotationGestureToViews:(NSArray *)viewArray

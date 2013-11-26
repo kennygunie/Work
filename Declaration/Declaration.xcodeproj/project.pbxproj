@@ -33,6 +33,7 @@
 		FB58838D183A791C001D7E29 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C183A791C001D7E29 /* PhotoViewController.m */; };
 		FB836C48183FA1F6002A86AC /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = FB836C47183FA1F6002A86AC /* Car.m */; };
 		FBF034CF1844ABF700DF83B1 /* AnnotationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF034CE1844ABF700DF83B1 /* AnnotationTableViewCell.m */; };
+		FBF034D21844E20D00DF83B1 /* CarAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF034D11844E20D00DF83B1 /* CarAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		FBF034CB1843B42300DF83B1 /* UpdateDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateDeclaration.h; sourceTree = "<group>"; };
 		FBF034CD1844ABF700DF83B1 /* AnnotationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationTableViewCell.h; sourceTree = "<group>"; };
 		FBF034CE1844ABF700DF83B1 /* AnnotationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationTableViewCell.m; sourceTree = "<group>"; };
+		FBF034D01844E20D00DF83B1 /* CarAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarAnnotation.h; sourceTree = "<group>"; };
+		FBF034D11844E20D00DF83B1 /* CarAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,8 @@
 				FBF034CB1843B42300DF83B1 /* UpdateDeclaration.h */,
 				FBF034CD1844ABF700DF83B1 /* AnnotationTableViewCell.h */,
 				FBF034CE1844ABF700DF83B1 /* AnnotationTableViewCell.m */,
+				FBF034D01844E20D00DF83B1 /* CarAnnotation.h */,
+				FBF034D11844E20D00DF83B1 /* CarAnnotation.m */,
 			);
 			path = Declaration;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				FB24DEB6183E37E4003262CB /* Declaration.m in Sources */,
 				FB58837B183A1881001D7E29 /* FormViewController.m in Sources */,
 				FB58838D183A791C001D7E29 /* PhotoViewController.m in Sources */,
+				FBF034D21844E20D00DF83B1 /* CarAnnotation.m in Sources */,
 				D2AE711C183AB37600551ECC /* MapViewController.m in Sources */,
 				FB58837E183A2850001D7E29 /* UITextView+Utils.m in Sources */,
 				FB58834F183A115F001D7E29 /* main.m in Sources */,

@@ -11,13 +11,13 @@
 
 @interface Car : NSObject
 
-@property (strong, nonatomic) NSString *model;
-@property (strong, nonatomic) NSString *imageName;
+@property (copy, nonatomic) NSString *model;
+@property (copy, nonatomic) NSString *imageName;
 @property (strong, nonatomic, readonly) UIImage *image;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
-@property (strong, nonatomic) NSString *geocoding;
-
+@property (copy, nonatomic) NSString *geocoding;
 @property float angle;
 
+- (instancetype)initWithCar:(Car *)car;
 
 @end

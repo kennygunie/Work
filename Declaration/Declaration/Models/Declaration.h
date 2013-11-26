@@ -13,8 +13,8 @@
 
 @interface Declaration : NSObject
 
-@property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) NSString *detail;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *detail;
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic, readonly) NSArray *photos; // of UIImage
 @property (strong, nonatomic, readonly) NSSet *cars; // of Car
