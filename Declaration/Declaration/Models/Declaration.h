@@ -18,7 +18,6 @@
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic, readonly) NSArray *photos; // of UIImage
 @property (strong, nonatomic, readonly) NSSet *cars; // of Car
-@property (nonatomic) CLLocationCoordinate2D currentCoordinate;
 
 - (void)addPhotosObject:(UIImage *)photo;
 - (void)addCarsObject:(Car *)car;

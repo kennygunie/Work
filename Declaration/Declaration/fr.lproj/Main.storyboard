@@ -210,7 +210,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Page View Controller-->
         <scene sceneID="k87-PS-pmE">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="vertical" spineLocation="none" id="hDH-Zq-N1Y" customClass="PageViewController" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="hDH-Zq-N1Y" customClass="PageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKi-g0-6eT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="264" y="-197"/>
@@ -227,6 +227,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="0.0" width="294" height="296"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAi-cy-52e">
+                                <rect key="frame" x="20" y="20" width="254" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Photos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickPhoto:" destination="43w-Ol-Ma1" eventType="touchUpInside" id="Y7H-gk-IFx"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FaN-Ay-7Iz">
                                 <rect key="frame" x="20" y="20" width="254" height="256"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,15 +246,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="FaN-Ay-7Iz" secondAttribute="trailing" constant="20" symbolic="YES" id="1wp-5a-fI2"/>
-                            <constraint firstAttribute="bottom" secondItem="FaN-Ay-7Iz" secondAttribute="bottom" constant="20" symbolic="YES" id="KvQ-7J-SSp"/>
-                            <constraint firstItem="FaN-Ay-7Iz" firstAttribute="leading" secondItem="Jl6-TA-8qN" secondAttribute="leading" constant="20" symbolic="YES" id="PNF-wy-zxY"/>
-                            <constraint firstItem="FaN-Ay-7Iz" firstAttribute="top" secondItem="Jl6-TA-8qN" secondAttribute="top" constant="20" symbolic="YES" id="dyQ-Zf-b41"/>
+                            <constraint firstItem="UAi-cy-52e" firstAttribute="leading" secondItem="Jl6-TA-8qN" secondAttribute="leading" constant="20" symbolic="YES" id="DDX-Nn-wpc"/>
+                            <constraint firstItem="FaN-Ay-7Iz" firstAttribute="top" secondItem="Jl6-TA-8qN" secondAttribute="top" constant="20" symbolic="YES" id="Fld-Yc-sHQ"/>
+                            <constraint firstAttribute="trailing" secondItem="UAi-cy-52e" secondAttribute="trailing" constant="20" symbolic="YES" id="NdH-BX-qeD"/>
+                            <constraint firstItem="UAi-cy-52e" firstAttribute="leading" secondItem="FaN-Ay-7Iz" secondAttribute="leading" id="OuM-LX-7xr"/>
+                            <constraint firstItem="FaN-Ay-7Iz" firstAttribute="bottom" secondItem="UAi-cy-52e" secondAttribute="bottom" id="Vbd-ZT-YkU"/>
+                            <constraint firstAttribute="bottom" secondItem="FaN-Ay-7Iz" secondAttribute="bottom" constant="20" symbolic="YES" id="rx0-Jk-LrK"/>
+                            <constraint firstItem="FaN-Ay-7Iz" firstAttribute="trailing" secondItem="UAi-cy-52e" secondAttribute="trailing" id="sIv-9l-pnG"/>
+                            <constraint firstItem="FaN-Ay-7Iz" firstAttribute="top" secondItem="UAi-cy-52e" secondAttribute="top" id="voy-7q-LGq"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="carImageView" destination="FaN-Ay-7Iz" id="27w-r3-3ku"/>
+                        <outlet property="photoPickerButton" destination="UAi-cy-52e" id="hrJ-FO-wfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnk-6I-eZO" userLabel="First Responder" sceneMemberID="firstResponder"/>

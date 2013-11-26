@@ -111,7 +111,6 @@
     region.span = span;
     region.center = location;
     [mapView setRegion:region animated:YES];
-    self.declaration.currentCoordinate = location;
 }
 
 /*
@@ -176,7 +175,6 @@
     return annotationView;
 }
 
-
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     if ([view.annotation isKindOfClass:[CarAnnotation class]]) {
@@ -185,6 +183,7 @@
         [self.declaration removeCarsObject:carAnnotation.car];
     }
 }
+
 #pragma mark - Utils
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)gesture

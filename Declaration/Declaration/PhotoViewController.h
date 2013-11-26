@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UIImageView *carImageView;
 @property (strong, nonatomic) NSNumber *pageNumber;
 @property (copy, nonatomic) NSString *imageName;
-
+@property (strong, nonatomic, readonly) UIImage *image;
 @end

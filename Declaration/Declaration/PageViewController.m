@@ -43,8 +43,10 @@
     
     PhotoViewController *p3 = [storyboard instantiateViewControllerWithIdentifier:@"PhotoViewController"];
     p3.imageName = @"a3";
+
+    PhotoViewController *p4 = [storyboard instantiateViewControllerWithIdentifier:@"PhotoViewController"];
     
-    _viewControllerArray = @[p1, p2, p3];
+    _viewControllerArray = @[p1, p2, p3, p4];
     
     __weak typeof(self) weakSelf = self;
     
@@ -53,7 +55,7 @@
                     animated:YES
                   completion:^(BOOL finished) {
                       if (finished && weakSelf.pageDidLoadImage) {
-                          weakSelf.pageDidLoadImage(p1.carImageView.image);
+                          weakSelf.pageDidLoadImage(p1.image);
                       }
                   }];
 
@@ -111,7 +113,7 @@
 {
     if (completed && self.pageDidLoadImage) {
         PhotoViewController *photoViewController = self.viewControllerArray[self.currentIndex];
-        self.pageDidLoadImage(photoViewController.carImageView.image);
+        self.pageDidLoadImage(photoViewController.image);
     }
 }
 

@@ -8,6 +8,11 @@
 
 #import "PhotoViewController.h"
 
+@interface PhotoViewController ()
+@property (strong, nonatomic, readwrite) UIImage *image;
+@property (weak, nonatomic) IBOutlet UIImageView *carImageView;
+@property (weak, nonatomic) IBOutlet UIButton *photoPickerButton;
+@end
 
 @implementation PhotoViewController
 
@@ -24,13 +29,29 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.carImageView setImage:[UIImage imageNamed:self.imageName]];
+    if (self.image) {
+        [self.carImageView setImage:self.image];
+    } else {
+        self.carImageView.hidden = YES;
+        self.photoPickerButton.hidden = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)pickPhoto:(UIButton *)sender
+{
+    
+}
+
+#pragma mark - Getters & Setters
+- (UIImage *)image
+{
+    return _image ? _image : (_image = [UIImage imageNamed:self.imageName]);
 }
 
 @end
