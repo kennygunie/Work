@@ -11,5 +11,5 @@
 @interface PhotoViewController : UIViewController
 @property (strong, nonatomic) NSNumber *pageNumber;
 @property (copy, nonatomic) NSString *imageName;
-@property (strong, nonatomic, readonly) UIImage *image;
+@property (weak, nonatomic) IBOutlet UIImageView *carImageView;
 @end

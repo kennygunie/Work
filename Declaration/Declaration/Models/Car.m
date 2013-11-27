@@ -32,7 +32,10 @@
 #pragma mark - Getters & Setters
 - (UIImage *)image
 {
-    return _image ? _image : (_image = [UIImage imageNamed:self.imageName]);
+    if (_image == nil && self.imageName.length > 0) {
+        _image = [UIImage imageNamed:self.imageName];
+    }
+    return _image;
 }
 
 @end

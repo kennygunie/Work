@@ -14,13 +14,14 @@
 @import MapKit;
 @import AddressBookUI;
 
+static NSString *DeleteTitle = @"❌";
+
 @interface MapViewController ()
 @property (strong, nonatomic) UIPopoverController *annotationPopoverController;
 //@property (strong, nonatomic) MKPointAnnotation *currentAnnotation;
 @property (assign, nonatomic) CLLocationCoordinate2D lastTouchMapCoordinate;
 @property (strong, nonatomic) AnnotationTableViewController *annotationTableViewController;
 @property (strong, nonatomic) CLGeocoder *geocoder;
-
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @end
 
@@ -167,7 +168,10 @@
                 annotationView.bounds = f;
                 annotationView.centerOffset = CGPointMake(0,0);
                 annotationView.canShowCallout = YES;
-                annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+                UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+                [button setTitle:DeleteTitle forState:UIControlStateNormal];
+                button.frame = CGRectMake(0, 0, 23, 23);
+                annotationView.rightCalloutAccessoryView = button;
             }
             annotationView.annotation = annotation;
         }

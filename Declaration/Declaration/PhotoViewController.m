@@ -9,8 +9,6 @@
 #import "PhotoViewController.h"
 
 @interface PhotoViewController ()
-@property (strong, nonatomic, readwrite) UIImage *image;
-@property (weak, nonatomic) IBOutlet UIImageView *carImageView;
 @property (weak, nonatomic) IBOutlet UIButton *photoPickerButton;
 @end
 
@@ -29,11 +27,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    if (self.image) {
-        [self.carImageView setImage:self.image];
+    if (self.imageName.length > 0) {
+        [self.carImageView setImage:[UIImage imageNamed:self.imageName]];
     } else {
-        self.carImageView.hidden = YES;
         self.photoPickerButton.hidden = NO;
+        self.carImageView.hidden = YES;
     }
 }
 
@@ -48,10 +46,6 @@
     
 }
 
-#pragma mark - Getters & Setters
-- (UIImage *)image
-{
-    return _image ? _image : (_image = [UIImage imageNamed:self.imageName]);
-}
+
 
 @end

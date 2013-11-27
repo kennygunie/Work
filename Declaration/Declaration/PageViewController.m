@@ -11,7 +11,6 @@
 
 @interface PageViewController ()
 @property (readonly, strong, nonatomic) NSArray *viewControllerArray;
-@property NSUInteger currentIndex;
 @end
 
 @implementation PageViewController
@@ -52,10 +51,10 @@
     
     [self setViewControllers:@[p1]
                    direction:UIPageViewControllerNavigationDirectionForward
-                    animated:YES
+                    animated:NO
                   completion:^(BOOL finished) {
                       if (finished && weakSelf.pageDidLoadImage) {
-                          weakSelf.pageDidLoadImage(p1.image);
+                          weakSelf.pageDidLoadImage(p1.carImageView.image);
                       }
                   }];
 
@@ -76,14 +75,10 @@
       viewControllerBeforeViewController:(UIViewController *)viewController
 {
     NSUInteger index = [self.viewControllerArray indexOfObject:viewController];
-    
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
     index--;
-    
-    self.currentIndex = index;
-    
     return [self.viewControllerArray objectAtIndex:index];
 }
 
@@ -91,7 +86,6 @@
        viewControllerAfterViewController:(UIViewController *)viewController
 {
     NSUInteger index = [self.viewControllerArray indexOfObject:viewController];
-    
     if (index == NSNotFound) {
         return nil;
     }
@@ -99,8 +93,6 @@
     if (index == [self.viewControllerArray count]) {
         return nil;
     }
-    self.currentIndex = index;
-    
     return [self.viewControllerArray objectAtIndex:index];
 }
 
@@ -111,9 +103,9 @@
    previousViewControllers:(NSArray *)previousViewControllers
        transitionCompleted:(BOOL)completed
 {
-    if (completed && self.pageDidLoadImage) {
-        PhotoViewController *photoViewController = self.viewControllerArray[self.currentIndex];
-        self.pageDidLoadImage(photoViewController.image);
+    if (completed && finished && self.pageDidLoadImage) {
+        //unsigned index = [self.viewControllerArray indexOfObject:[previousViewControllers firstObject]] + 1;
+        //PhotoViewController *photoViewController = self.viewControllerArray[index];
     }
 }
 
