@@ -8,9 +8,10 @@
 
 #import "PageViewController.h"
 #import "PhotoViewController.h"
+#import "PageViewControllerDataSource.h"
 
 @interface PageViewController ()
-@property (readonly, strong, nonatomic) NSArray *viewControllerArray;
+@property (strong, nonatomic) PageViewControllerDataSource *pageViewControllerDataSource;
 @end
 
 @implementation PageViewController
@@ -29,7 +30,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.dataSource = self;
     self.delegate = self;
     
     UIStoryboard *storyboard = self.storyboard;
@@ -45,9 +45,10 @@
 
     PhotoViewController *p4 = [storyboard instantiateViewControllerWithIdentifier:@"PhotoViewController"];
     
-    _viewControllerArray = @[p1, p2, p3, p4];
+    self.pageViewControllerDataSource.viewControllerArray = @[p1, p2, p3, p4];
     
     __weak typeof(self) weakSelf = self;
+    self.dataSource = self.pageViewControllerDataSource;
     
     [self setViewControllers:@[p1]
                    direction:UIPageViewControllerNavigationDirectionForward
@@ -66,37 +67,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Getters & setters
 
-#pragma mark - UIPageViewController
-
-#pragma mark UIPageViewControllerDataSource
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
-      viewControllerBeforeViewController:(UIViewController *)viewController
+- (PageViewControllerDataSource *)pageViewControllerDataSource
 {
-    NSUInteger index = [self.viewControllerArray indexOfObject:viewController];
-    if ((index == 0) || (index == NSNotFound)) {
-        return nil;
+    // Return the model controller object, creating it if necessary.
+    // In more complex implementations, the model controller may be passed to the view controller.
+    if (!_pageViewControllerDataSource) {
+        _pageViewControllerDataSource = [[PageViewControllerDataSource alloc] init];
     }
-    index--;
-    return [self.viewControllerArray objectAtIndex:index];
+    return _pageViewControllerDataSource;
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
-       viewControllerAfterViewController:(UIViewController *)viewController
-{
-    NSUInteger index = [self.viewControllerArray indexOfObject:viewController];
-    if (index == NSNotFound) {
-        return nil;
-    }
-    index++;
-    if (index == [self.viewControllerArray count]) {
-        return nil;
-    }
-    return [self.viewControllerArray objectAtIndex:index];
-}
-
-#pragma mark UIPageViewControllerDelegate
+#pragma mark - UIPageViewControllerDelegate
 
 - (void)pageViewController:(UIPageViewController *)pageViewController
         didFinishAnimating:(BOOL)finished

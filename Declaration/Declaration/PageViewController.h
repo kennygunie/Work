@@ -10,7 +10,7 @@
 
 @class Declaration;
 
-@interface PageViewController : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+@interface PageViewController : UIPageViewController <UIPageViewControllerDelegate>
 @property (nonatomic, copy) void (^pageDidLoadImage)(UIImage *image);
 @property (weak, nonatomic) Declaration *declaration;
 @end

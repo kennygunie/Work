@@ -8,10 +8,6 @@
 
 #import "Car.h"
 
-@interface Car ()
-@property (strong, nonatomic, readwrite) UIImage *image;
-@end
-
 @implementation Car
 
 
@@ -21,21 +17,22 @@
     if (self) {
         self.model = car.model;
         self.image = car.image;
-        self.imageName = car.imageName;
-        self.coordinate = car.coordinate;
-        self.geocoding = car.geocoding;
-        self.angle = car.angle;
     }
     return self;
 }
 
 #pragma mark - Getters & Setters
-- (UIImage *)image
-{
-    if (_image == nil && self.imageName.length > 0) {
-        _image = [UIImage imageNamed:self.imageName];
-    }
-    return _image;
-}
+//- (UIImage *)image
+//{
+//    NSLog(@"%@ %@",self, self.imageName);
+//    if (self.imageName.length == 0) {
+//        return nil;
+//    }
+//    
+//    if (_image == nil) {
+//        _image = [UIImage imageNamed:self.imageName];
+//    }
+//    return _image;
+//}
 
 @end

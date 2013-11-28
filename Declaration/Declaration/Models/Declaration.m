@@ -10,11 +10,6 @@
 #import "NSDate+Utils.h"
 #import "Car.h"
 
-@interface Declaration ()
-@property (strong, nonatomic, readwrite) NSArray *photos;
-@property (strong, nonatomic, readwrite) NSSet *cars;
-@end
-
 @implementation Declaration
 
 #pragma mark - Getters & setters
@@ -29,12 +24,10 @@
 #pragma mark Photo
 - (void)addPhotosObject:(UIImage *)photo
 {
-    NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
-    if ([_photos count] > 0) {
-        [mutableArray addObjectsFromArray:_photos];
+    if (_photos == nil) {
+        _photos = [[NSMutableArray alloc] init];
     }
-    [mutableArray addObject:photo];
-    _photos = mutableArray;
+    [self.photos addObject:photo];
 }
 
 #pragma mark Car
@@ -42,20 +35,16 @@
 
 - (void)addCarsObject:(Car *)car
 {
-    NSMutableSet *mutableSet = [[NSMutableSet alloc] init];
-    if ([_cars count] > 0) {
-        [mutableSet setSet:_cars];
+    if (_cars == nil) {
+        _cars = [[NSMutableSet alloc] init];
     }
-    [mutableSet addObject:car];
-    _cars = mutableSet;
+    [self.cars addObject:car];
 }
 
 - (void)removeCarsObject:(Car *)car
 {
     if ([_cars count] > 0) {
-        NSMutableSet *mutableSet = [[NSMutableSet alloc] initWithSet:_cars];
-        [mutableSet removeObject:car];
-        _cars = mutableSet;
+        [self.cars removeObject:car];
     }
 }
 

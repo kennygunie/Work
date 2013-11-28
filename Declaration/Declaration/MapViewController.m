@@ -72,13 +72,7 @@ static NSString *DeleteTitle = @"❌";
             carCopy.coordinate = weakSelf.lastTouchMapCoordinate;
             [weakSelf.declaration addCarsObject:carCopy];
             
-            CarAnnotation *annotation = [[CarAnnotation alloc] init];
-            // For mapview delegate
-            annotation.coordinate = carCopy.coordinate;
-            annotation.title = carCopy.model;
-            annotation.subtitle = carCopy.geocoding;
-            // Keep data
-            annotation.car = carCopy;
+            CarAnnotation *annotation = [[CarAnnotation alloc] initWithCar:carCopy];
             [weakSelf.mapView addAnnotation:annotation];
             
             [weakSelf.annotationPopoverController dismissPopoverAnimated:YES];
@@ -155,24 +149,23 @@ static NSString *DeleteTitle = @"❌";
     MKAnnotationView* annotationView = nil;
     if ([annotation isKindOfClass:[CarAnnotation class]]) {
         CarAnnotation *carAnnotation = (CarAnnotation *)annotation;
-        if (carAnnotation.car.image) {
+        UIImage *carImage = carAnnotation.car.image;
+        if (carImage) {
             static NSString* ident = @"carPin";
             annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:ident];
             if (annotationView == nil) {
                 annotationView = [[MKAnnotationView alloc] initWithAnnotation:carAnnotation
                                                               reuseIdentifier:ident];
-                annotationView.image = carAnnotation.car.image;
-                CGRect f = annotationView.bounds;
-                f.size.height /= 3.0;
-                f.size.width /= 3.0;
-                annotationView.bounds = f;
-                annotationView.centerOffset = CGPointMake(0,0);
+                //annotationView.centerOffset = CGPointMake(0,0);
+                //annotationView.draggable = YES;
                 annotationView.canShowCallout = YES;
                 UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
                 [button setTitle:DeleteTitle forState:UIControlStateNormal];
                 button.frame = CGRectMake(0, 0, 23, 23);
                 annotationView.rightCalloutAccessoryView = button;
             }
+            annotationView.image = carImage;
+            annotationView.frame = CGRectMake(0, 0, carImage.size.width/3, carImage.size.height/3);
             annotationView.annotation = annotation;
         }
     }
@@ -183,8 +176,8 @@ static NSString *DeleteTitle = @"❌";
 {
     if ([view.annotation isKindOfClass:[CarAnnotation class]]) {
         CarAnnotation *carAnnotation = view.annotation;
-        [mapView removeAnnotation:view.annotation];
         [self.declaration removeCarsObject:carAnnotation.car];
+        [mapView removeAnnotation:carAnnotation];
     }
 }
 

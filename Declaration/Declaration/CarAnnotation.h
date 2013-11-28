@@ -14,5 +14,7 @@
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *subtitle;
-@property (retain, nonatomic) Car *car;
+@property (strong, nonatomic) Car *car;
+
+- (instancetype)initWithCar:(Car *)car;
 @end

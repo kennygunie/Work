@@ -37,15 +37,15 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     Car *car1 =  [[Car alloc] init];
     car1.model = @"Audi A1";
-    car1.imageName = @"1";
+    car1.image = [UIImage imageNamed:@"1"];
     
     Car *car2 =  [[Car alloc] init];
     car2.model = @"Renault Twingo";
-    car2.imageName = @"2";
+    car2.image = [UIImage imageNamed:@"2"];
     
     Car *car3 =  [[Car alloc] init];
     car3.model = @"Citroen Picasso";
-    car3.imageName = @"3";
+    car3.image = [UIImage imageNamed:@"3"];
     
     self.dataSource = @[car1, car2, car3];
 }
@@ -76,7 +76,6 @@
     AnnotationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                             forIndexPath:indexPath];
     Car *car = self.dataSource[indexPath.row];
-    
     cell.titleLabel.text = car.model;
     cell.iconImageView.image = car.image;
     
