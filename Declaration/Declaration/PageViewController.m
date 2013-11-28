@@ -9,6 +9,7 @@
 #import "PageViewController.h"
 #import "PhotoViewController.h"
 #import "PageViewControllerDataSource.h"
+#import "Declaration.h"
 
 @interface PageViewController ()
 @property (nonatomic) PageViewControllerDataSource *pageViewControllerDataSource;
@@ -127,6 +128,7 @@
     [self.imagePickerController dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     if (image) {
+        [self.declaration addPhotosObject:image];
         PhotoViewController *photoViewController = [self.viewControllers firstObject];
         [photoViewController setImage:image];
         [self propagatePageDidLoadImage:image
