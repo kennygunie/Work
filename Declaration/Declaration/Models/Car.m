@@ -21,18 +21,4 @@
     return self;
 }
 
-#pragma mark - Getters & Setters
-//- (UIImage *)image
-//{
-//    NSLog(@"%@ %@",self, self.imageName);
-//    if (self.imageName.length == 0) {
-//        return nil;
-//    }
-//    
-//    if (_image == nil) {
-//        _image = [UIImage imageNamed:self.imageName];
-//    }
-//    return _image;
-//}
-
 @end

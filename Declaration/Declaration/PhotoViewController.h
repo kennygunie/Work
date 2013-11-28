@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoViewController : UIViewController
-@property (strong, nonatomic) NSNumber *pageNumber;
-@property (copy, nonatomic) NSString *imageName;
-@property (weak, nonatomic) IBOutlet UIImageView *carImageView;
+@property (copy, nonatomic) void (^pickerDidSelected)(void);
+@property (weak, nonatomic, readonly) IBOutlet UIImageView *carImageView;
+- (void)updateView;
+- (void)setImage:(UIImage *)image;
 @end

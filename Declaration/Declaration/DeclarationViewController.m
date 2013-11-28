@@ -16,10 +16,10 @@
 @import MapKit;
 
 @interface DeclarationViewController ()
-@property (strong, nonatomic) Declaration *declaration;
-@property (strong, nonatomic) FormViewController *formViewController;
-@property (strong, nonatomic) MapViewController *mapViewController;
-@property (strong, nonatomic) PageViewController *pageViewController;
+@property (nonatomic) Declaration *declaration;
+@property (nonatomic) FormViewController *formViewController;
+@property (nonatomic) MapViewController *mapViewController;
+@property (nonatomic) PageViewController *pageViewController;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @end
 
@@ -73,7 +73,6 @@
         self.formViewController = segue.destinationViewController;
         self.formViewController.declaration = self.declaration;
     } else if ([[segue identifier] isEqualToString:@"PageViewController"]) {
-        
         self.pageViewController = segue.destinationViewController;
         __weak typeof(self) weakSelf = self;
         self.pageViewController.pageDidLoadImage = ^(UIImage *image) {

@@ -40,7 +40,7 @@
     self.showDatePicker = NO;
     [self setupDateCellWithDate:self.declaration.date];
     self.titleTextField.placeholder = self.titlePlaceHolder;
-    self.detailTextView.text = self.declaration.detail.length > 0 ? self.declaration.detail : self.detailPlaceHolder;
+    self.detailTextView.text = self.declaration.detail.length ? self.declaration.detail : self.detailPlaceHolder;
 }
 
 - (void)didReceiveMemoryWarning

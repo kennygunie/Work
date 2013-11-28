@@ -12,7 +12,7 @@
 
 
 @interface AnnotationTableViewController ()
-@property (strong, nonatomic) NSArray *dataSource; // of Car
+@property (nonatomic) NSArray *dataSource; // of Car
 @end
 
 @implementation AnnotationTableViewController

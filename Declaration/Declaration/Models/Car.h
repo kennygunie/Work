@@ -13,7 +13,7 @@
 
 @property (copy, nonatomic) NSString *model;
 @property (copy, nonatomic) NSString *geocoding;
-@property (strong, nonatomic) UIImage *image;
+@property (nonatomic) UIImage *image;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property float angle;
 

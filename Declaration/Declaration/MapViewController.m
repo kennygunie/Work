@@ -17,11 +17,10 @@
 static NSString *DeleteTitle = @"❌";
 
 @interface MapViewController ()
-@property (strong, nonatomic) UIPopoverController *annotationPopoverController;
-//@property (strong, nonatomic) MKPointAnnotation *currentAnnotation;
+@property (nonatomic) UIPopoverController *annotationPopoverController;
 @property (assign, nonatomic) CLLocationCoordinate2D lastTouchMapCoordinate;
-@property (strong, nonatomic) AnnotationTableViewController *annotationTableViewController;
-@property (strong, nonatomic) CLGeocoder *geocoder;
+@property (nonatomic) AnnotationTableViewController *annotationTableViewController;
+@property (nonatomic) CLGeocoder *geocoder;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @end
 

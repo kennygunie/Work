@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface PageViewControllerDataSource : NSObject <UIPageViewControllerDataSource>
-@property (strong, nonatomic) NSArray *viewControllerArray; // of UIViewController
+@property (nonatomic) NSMutableArray *viewControllers; // of UIViewController
 @end

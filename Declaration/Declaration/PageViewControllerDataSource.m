@@ -10,31 +10,41 @@
 
 @implementation PageViewControllerDataSource
 
+#pragma mark - Getters & setters
+
+- (NSMutableArray *)viewControllers
+{
+    if (_viewControllers == nil) {
+        _viewControllers = [[NSMutableArray alloc] init];
+    }
+    return _viewControllers;
+}
+
 #pragma mark UIPageViewControllerDataSource
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
       viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self.viewControllerArray indexOfObject:viewController];
+    NSUInteger index = [self.viewControllers indexOfObject:viewController];
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
     index--;
-    return [self.viewControllerArray objectAtIndex:index];
+    return [self.viewControllers objectAtIndex:index];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
        viewControllerAfterViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self.viewControllerArray indexOfObject:viewController];
+    NSUInteger index = [self.viewControllers indexOfObject:viewController];
     if (index == NSNotFound) {
         return nil;
     }
     index++;
-    if (index == [self.viewControllerArray count]) {
+    if (index == [self.viewControllers count]) {
         return nil;
     }
-    return [self.viewControllerArray objectAtIndex:index];
+    return [self.viewControllers objectAtIndex:index];
 }
 
 @end

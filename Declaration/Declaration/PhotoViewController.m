@@ -10,6 +10,7 @@
 
 @interface PhotoViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *photoPickerButton;
+@property (weak, nonatomic, readwrite) IBOutlet UIImageView *carImageView;
 @end
 
 @implementation PhotoViewController
@@ -27,12 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    if (self.imageName.length > 0) {
-        [self.carImageView setImage:[UIImage imageNamed:self.imageName]];
-    } else {
-        self.photoPickerButton.hidden = NO;
-        self.carImageView.hidden = YES;
-    }
+    [self updateView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,11 +37,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)pickPhoto:(UIButton *)sender
+#pragma mark - Getters & setters
+
+- (void)updateView;
 {
-    
+    if (self.carImageView.image) {
+        self.photoPickerButton.hidden = YES;
+        self.carImageView.hidden = NO;
+    } else {
+        self.photoPickerButton.hidden = NO;
+        self.carImageView.hidden = YES;
+    }
 }
 
+#pragma mark - IBAction
+- (IBAction)pickPhoto:(UIButton *)sender
+{
+    if (self.pickerDidSelected) {
+        self.pickerDidSelected();
+    }
+}
 
+- (void)setImage:(UIImage *)image
+{
+    self.carImageView.image = image;
+    [self updateView];
+}
 
 @end

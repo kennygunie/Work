@@ -15,9 +15,9 @@
 
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *detail;
-@property (strong, nonatomic) NSDate *date;
-@property (strong, nonatomic) NSMutableArray *photos; // of UIImage
-@property (strong, nonatomic) NSMutableSet *cars; // of Car
+@property (nonatomic) NSDate *date;
+@property (nonatomic) NSMutableArray *photos; // of UIImage
+@property (nonatomic) NSMutableSet *cars; // of Car
 
 - (void)addPhotosObject:(UIImage *)photo;
 - (void)addCarsObject:(Car *)car;
