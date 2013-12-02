@@ -23,4 +23,11 @@
     return self;
 }
 
+#pragma mark - Getters & setters
+- (void)coordinate:(CLLocationCoordinate2D)coordinate
+{
+    _coordinate = coordinate;
+    self.car.coordinate = coordinate;
+}
+
 @end

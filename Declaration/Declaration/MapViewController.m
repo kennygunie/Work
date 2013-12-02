@@ -156,7 +156,7 @@ static NSString *DeleteTitle = @"❌";
                 annotationView = [[MKAnnotationView alloc] initWithAnnotation:carAnnotation
                                                               reuseIdentifier:ident];
                 //annotationView.centerOffset = CGPointMake(0,0);
-                //annotationView.draggable = YES;
+                annotationView.draggable = YES;
                 annotationView.canShowCallout = YES;
                 UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
                 [button setTitle:DeleteTitle forState:UIControlStateNormal];
@@ -169,6 +169,25 @@ static NSString *DeleteTitle = @"❌";
         }
     }
     return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView
+ annotationView:(MKAnnotationView *)annotationView
+didChangeDragState:(MKAnnotationViewDragState)newState
+   fromOldState:(MKAnnotationViewDragState)oldState
+{
+    if (newState == MKAnnotationViewDragStateEnding) {
+        // custom code when drag ends...
+        // tell the annotation view that the drag is done
+        [annotationView setDragState:MKAnnotationViewDragStateNone animated:YES];
+    }
+    
+    else if (newState == MKAnnotationViewDragStateCanceling) {
+        // custom code when drag canceled...
+        
+        // tell the annotation view that the drag is done
+        [annotationView setDragState:MKAnnotationViewDragStateNone animated:YES];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
