@@ -15,6 +15,8 @@
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *subtitle;
 @property (nonatomic) Car *car;
+@property (nonatomic) MKPolyline *direction;
 
 - (instancetype)initWithCar:(Car *)car;
+- (void)updateDirectionWithCoordinate:(CLLocationCoordinate2D)directionCoordinate;
 @end

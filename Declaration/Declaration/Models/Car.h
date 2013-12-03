@@ -15,6 +15,7 @@
 @property (copy, nonatomic) NSString *geocoding;
 @property (nonatomic) UIImage *image;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
+@property (nonatomic) CLLocationCoordinate2D directionCoordinate;
 @property float angle;
 
 - (instancetype)initWithCar:(Car *)car;

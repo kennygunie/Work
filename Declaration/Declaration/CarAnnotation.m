@@ -30,4 +30,16 @@
     self.car.coordinate = coordinate;
 }
 
+- (void)updateDirectionWithCoordinate:(CLLocationCoordinate2D)directionCoordinate
+{
+    self.car.directionCoordinate = directionCoordinate;
+    
+    CLLocationCoordinate2D coordinateArray[2] = {self.car.coordinate, self.car.directionCoordinate};
+    
+    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinateArray
+                                                         count:2];
+    free(coordinateArray);
+    self.direction = polyLine;
+}
+
 @end

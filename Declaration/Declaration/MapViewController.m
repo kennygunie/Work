@@ -14,7 +14,8 @@
 @import MapKit;
 @import AddressBookUI;
 
-static NSString *DeleteTitle = @"❌";
+static NSString *DeleteIcon = @"❌";
+static NSString *DirectionIcon = @"↗️";
 
 @interface MapViewController ()
 @property (nonatomic) UIPopoverController *annotationPopoverController;
@@ -22,6 +23,8 @@ static NSString *DeleteTitle = @"❌";
 @property (nonatomic) AnnotationTableViewController *annotationTableViewController;
 @property (nonatomic) CLGeocoder *geocoder;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic) CarAnnotation *directionAnnotation;
+@property (nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 @end
 
 @implementation MapViewController
@@ -44,6 +47,9 @@ static NSString *DeleteTitle = @"❌";
     UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                           action:@selector(handleLongPress:)];
     [self.mapView addGestureRecognizer:gesture];
+    
+    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                        action:@selector(handleTap:)];
     
 }
 
@@ -137,10 +143,10 @@ static NSString *DeleteTitle = @"❌";
                                                           longitude:annotation.coordinate.longitude];
         [self.geocoder reverseGeocodeLocation:location
                             completionHandler:^(NSArray *placemarks, NSError *error) {
-            CLPlacemark *placemark = [placemarks firstObject];
-            annotation.subtitle = ABCreateStringWithAddressDictionary(placemark.addressDictionary, NO);
-            annotation.car.geocoding = annotation.subtitle;
-        }];
+                                CLPlacemark *placemark = [placemarks firstObject];
+                                annotation.subtitle = ABCreateStringWithAddressDictionary(placemark.addressDictionary, NO);
+                                annotation.car.geocoding = annotation.subtitle;
+                            }];
     }
 }
 
@@ -158,10 +164,16 @@ static NSString *DeleteTitle = @"❌";
                 //annotationView.centerOffset = CGPointMake(0,0);
                 annotationView.draggable = YES;
                 annotationView.canShowCallout = YES;
-                UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-                [button setTitle:DeleteTitle forState:UIControlStateNormal];
-                button.frame = CGRectMake(0, 0, 23, 23);
-                annotationView.rightCalloutAccessoryView = button;
+                UIButton *deleteButton = [UIButton buttonWithType:UIButtonTypeSystem];
+                [deleteButton setTitle:DeleteIcon forState:UIControlStateNormal];
+                deleteButton.frame = CGRectMake(0, 0, 23, 23);
+                annotationView.rightCalloutAccessoryView = deleteButton;
+                
+                UIButton *directionButton = [UIButton buttonWithType:UIButtonTypeSystem];
+                [directionButton setTitle:DirectionIcon forState:UIControlStateNormal];
+                directionButton.frame = CGRectMake(0, 0, 23, 23);
+                annotationView.leftCalloutAccessoryView = directionButton;
+                
             }
             annotationView.image = carImage;
             annotationView.frame = CGRectMake(0, 0, carImage.size.width/3, carImage.size.height/3);
@@ -194,16 +206,48 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 {
     if ([view.annotation isKindOfClass:[CarAnnotation class]]) {
         CarAnnotation *carAnnotation = view.annotation;
-        [self.declaration removeCarsObject:carAnnotation.car];
-        [mapView removeAnnotation:carAnnotation];
+        if (control == view.leftCalloutAccessoryView) {
+            [self.mapView addGestureRecognizer:self.tapGestureRecognizer];
+            self.directionAnnotation = carAnnotation;
+            [mapView deselectAnnotation:carAnnotation animated:YES];
+        } else if (control == view.rightCalloutAccessoryView) {
+            [self.declaration removeCarsObject:carAnnotation.car];
+            [mapView removeAnnotation:carAnnotation];
+        }
     }
 }
 
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
+        MKPolyline *route = overlay;
+        MKPolylineRenderer *routeRenderer = [[MKPolylineRenderer alloc] initWithPolyline:route];
+        routeRenderer.strokeColor = [UIColor grayColor];
+        routeRenderer.lineWidth = 5.0;
+        return routeRenderer;
+    }
+    
+    return nil;
+}
+
+
 #pragma mark - Utils
+
+- (void)handleTap:(UITapGestureRecognizer *)gesture
+{
+    CGPoint touchPoint = [gesture locationInView:self.mapView];
+    CLLocationCoordinate2D touchCoordinate = [self.mapView convertPoint:touchPoint
+                                                   toCoordinateFromView:self.mapView];
+    [self.mapView removeOverlay:self.directionAnnotation.direction];
+    [self.directionAnnotation updateDirectionWithCoordinate:touchCoordinate];
+    [self.mapView addOverlay:self.directionAnnotation.direction];
+    [self.mapView removeGestureRecognizer:self.tapGestureRecognizer];
+}
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)gesture
 {
-    if (gesture.state != UIGestureRecognizerStateBegan) return;
+    if (gesture.state != UIGestureRecognizerStateBegan)
+        return;
     
     CGPoint touchPoint = [gesture locationInView:self.mapView];
     self.lastTouchMapCoordinate = [self.mapView convertPoint:touchPoint
