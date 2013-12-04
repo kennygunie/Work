@@ -62,7 +62,7 @@
         [carsString appendFormat:@"\n\t\t[%@]\n\t\tDirection %f %f\n%@", car.model, car.directionCoordinate.latitude, car.directionCoordinate.longitude, car.geocoding];
     }
     
-    return [[NSString alloc] initWithFormat:@"\nDeclaration {\n\tTitle: %@\n\tDescription: %@\n\tDate: %@\n\tPhotos count: %i\n\tCars: %@\n}", self.title, self.detail, [self.date dateString], [self.photos count], carsString];
+    return [[NSString alloc] initWithFormat:@"\nDeclaration {\n\tTitle: %@\n\tDescription: %@\n\tDate: %@\n\tPhotos count: %lu\n\tCars: %@\n}", self.title, self.detail, [self.date dateString], (unsigned long)[self.photos count], carsString];
 }
 
 @end

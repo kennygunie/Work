@@ -11,6 +11,7 @@
 #import "AnnotationTableViewController.h"
 #import "Car.h"
 #import "CarAnnotation.h"
+#import "UIBezierPath+Utils.h"
 @import MapKit;
 @import AddressBookUI;
 
@@ -81,7 +82,6 @@ static NSString *DirectionIcon = @"↗️";
             [weakSelf.mapView addAnnotation:annotation];
             
             [weakSelf.annotationPopoverController dismissPopoverAnimated:YES];
-            
         };
     }
     
@@ -236,10 +236,20 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 - (void)handleTap:(UITapGestureRecognizer *)gesture
 {
     CGPoint touchPoint = [gesture locationInView:self.mapView];
+    CGPoint startPoint = [self.mapView convertCoordinate:self.directionAnnotation.car.coordinate
+                                           toPointToView:self.mapView];
     CLLocationCoordinate2D touchCoordinate = [self.mapView convertPoint:touchPoint
                                                    toCoordinateFromView:self.mapView];
     [self.mapView removeOverlay:self.directionAnnotation.direction];
     [self.directionAnnotation updateDirectionWithCoordinate:touchCoordinate];
+    /*
+    UIBezierPath *path = [UIBezierPath bezierPathWithArrowFromPoint:startPoint
+                                                            toPoint:touchPoint
+                                                          tailWidth:2
+                                                          headWidth:10
+                                                         headLength:5];
+     */
+
     [self.mapView addOverlay:self.directionAnnotation.direction];
     [self.mapView removeGestureRecognizer:self.tapGestureRecognizer];
 }
