@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Car;
 @import MapKit;
+
+@class Car, DirectionAnnotation;
 
 @interface CarAnnotation : NSObject <MKAnnotation>
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
@@ -16,6 +17,7 @@
 @property (copy, nonatomic) NSString *subtitle;
 @property (nonatomic) Car *car;
 @property (nonatomic) MKPolyline *direction;
+@property (nonatomic) DirectionAnnotation *directionAnnotation;
 
 - (instancetype)initWithCar:(Car *)car;
 - (void)updateDirectionWithCoordinate:(CLLocationCoordinate2D)directionCoordinate;

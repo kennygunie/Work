@@ -33,6 +33,7 @@
 		FB58838D183A791C001D7E29 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB58838C183A791C001D7E29 /* PhotoViewController.m */; };
 		FB7886D2184F2F0500947AC7 /* UIBezierPath+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7886D1184F2F0500947AC7 /* UIBezierPath+Utils.m */; };
 		FB836C48183FA1F6002A86AC /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = FB836C47183FA1F6002A86AC /* Car.m */; };
+		FBBE60721850D05C008C579E /* DirectionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBE60711850D05C008C579E /* DirectionAnnotation.m */; };
 		FBF034CF1844ABF700DF83B1 /* AnnotationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF034CE1844ABF700DF83B1 /* AnnotationTableViewCell.m */; };
 		FBF034D21844E20D00DF83B1 /* CarAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF034D11844E20D00DF83B1 /* CarAnnotation.m */; };
 		FBF0351C1846210400DF83B1 /* PageViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF0351B1846210400DF83B1 /* PageViewControllerDataSource.m */; };
@@ -92,6 +93,8 @@
 		FB7886D1184F2F0500947AC7 /* UIBezierPath+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Utils.m"; sourceTree = "<group>"; };
 		FB836C46183FA1F6002A86AC /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		FB836C47183FA1F6002A86AC /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		FBBE60701850D05C008C579E /* DirectionAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionAnnotation.h; sourceTree = "<group>"; };
+		FBBE60711850D05C008C579E /* DirectionAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionAnnotation.m; sourceTree = "<group>"; };
 		FBF034CB1843B42300DF83B1 /* UpdateDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateDeclaration.h; sourceTree = "<group>"; };
 		FBF034CD1844ABF700DF83B1 /* AnnotationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationTableViewCell.h; sourceTree = "<group>"; };
 		FBF034CE1844ABF700DF83B1 /* AnnotationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationTableViewCell.m; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				FBF034CB1843B42300DF83B1 /* UpdateDeclaration.h */,
 				FB7886D0184F2F0500947AC7 /* UIBezierPath+Utils.h */,
 				FB7886D1184F2F0500947AC7 /* UIBezierPath+Utils.m */,
+				FBBE60701850D05C008C579E /* DirectionAnnotation.h */,
+				FBBE60711850D05C008C579E /* DirectionAnnotation.m */,
 			);
 			path = Declaration;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				D2AE711C183AB37600551ECC /* MapViewController.m in Sources */,
 				FB58837E183A2850001D7E29 /* UITextView+Utils.m in Sources */,
 				FB7886D2184F2F0500947AC7 /* UIBezierPath+Utils.m in Sources */,
+				FBBE60721850D05C008C579E /* DirectionAnnotation.m in Sources */,
 				FB58834F183A115F001D7E29 /* main.m in Sources */,
 				FBF034CF1844ABF700DF83B1 /* AnnotationTableViewCell.m in Sources */,
 			);

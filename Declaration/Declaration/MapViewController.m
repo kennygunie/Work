@@ -42,9 +42,6 @@ static NSString *DirectionIcon = @"↗️";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    //[self addPanGestureToViews:@[self.car1ImageView, self.car2ImageView, self.car3ImageView]];
-    //[self addRotationGestureToViews:@[self.car1ImageView, self.car2ImageView, self.car3ImageView]];
     UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                           action:@selector(handleLongPress:)];
     [self.mapView addGestureRecognizer:gesture];
@@ -92,7 +89,7 @@ static NSString *DirectionIcon = @"↗️";
 {
     if (_annotationPopoverController == nil) {
         _annotationPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.annotationTableViewController];
-        _annotationPopoverController.delegate = self;
+        //_annotationPopoverController.delegate = self;
     }
     return _annotationPopoverController;
 }
@@ -113,26 +110,6 @@ static NSString *DirectionIcon = @"↗️";
     [mapView setRegion:region animated:YES];
 }
 
-/*
- #pragma mark - IBAction
- - (IBAction)dismissModalAction:(id)sender
- {
- [self dismissViewControllerAnimated:YES completion:nil];
- }
- 
- - (IBAction)toggleStickerViewAction:(id)sender
- {
- if (self.stickerView.hidden) {
- [self.toggleStickerButton setTitle:NSLocalizedString(@"Reset", nil)
- forState:UIControlStateNormal];
- } else {
- [self.toggleStickerButton setTitle:NSLocalizedString(@"Add stikers", nil)
- forState:UIControlStateNormal];
- }
- self.stickerView.hidden = !self.stickerView.hidden;
- 
- }
- */
 
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -221,9 +198,10 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 {
     if ([overlay isKindOfClass:[MKPolyline class]]) {
         MKPolyline *route = overlay;
+        
         MKPolylineRenderer *routeRenderer = [[MKPolylineRenderer alloc] initWithPolyline:route];
         routeRenderer.strokeColor = [UIColor grayColor];
-        routeRenderer.lineWidth = 5.0;
+        routeRenderer.lineWidth = 3.0;
         return routeRenderer;
     }
     
@@ -236,20 +214,10 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 - (void)handleTap:(UITapGestureRecognizer *)gesture
 {
     CGPoint touchPoint = [gesture locationInView:self.mapView];
-    CGPoint startPoint = [self.mapView convertCoordinate:self.directionAnnotation.car.coordinate
-                                           toPointToView:self.mapView];
     CLLocationCoordinate2D touchCoordinate = [self.mapView convertPoint:touchPoint
                                                    toCoordinateFromView:self.mapView];
     [self.mapView removeOverlay:self.directionAnnotation.direction];
     [self.directionAnnotation updateDirectionWithCoordinate:touchCoordinate];
-    /*
-    UIBezierPath *path = [UIBezierPath bezierPathWithArrowFromPoint:startPoint
-                                                            toPoint:touchPoint
-                                                          tailWidth:2
-                                                          headWidth:10
-                                                         headLength:5];
-     */
-
     [self.mapView addOverlay:self.directionAnnotation.direction];
     [self.mapView removeGestureRecognizer:self.tapGestureRecognizer];
 }

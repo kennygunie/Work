@@ -8,6 +8,7 @@
 
 #import "CarAnnotation.h"
 #import "Car.h"
+#import "DirectionAnnotation.h"
 
 @implementation CarAnnotation
 
@@ -38,5 +39,6 @@
                                                          count:2];
     self.direction = polyLine;
 }
+
 
 @end
