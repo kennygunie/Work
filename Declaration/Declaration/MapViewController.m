@@ -24,7 +24,7 @@ static NSString *DirectionIcon = @"↗️";
 @property (nonatomic) AnnotationTableViewController *annotationTableViewController;
 @property (nonatomic) CLGeocoder *geocoder;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (nonatomic) CarAnnotation *directionAnnotation;
+@property (nonatomic) CarAnnotation *carAnnotation;
 @property (nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 @end
 
@@ -185,10 +185,11 @@ didChangeDragState:(MKAnnotationViewDragState)newState
         CarAnnotation *carAnnotation = view.annotation;
         if (control == view.leftCalloutAccessoryView) {
             [self.mapView addGestureRecognizer:self.tapGestureRecognizer];
-            self.directionAnnotation = carAnnotation;
+            self.carAnnotation = carAnnotation;
             [mapView deselectAnnotation:carAnnotation animated:YES];
         } else if (control == view.rightCalloutAccessoryView) {
             [self.declaration removeCarsObject:carAnnotation.car];
+            [self.mapView removeOverlay:self.carAnnotation.direction];
             [mapView removeAnnotation:carAnnotation];
         }
     }
@@ -216,9 +217,9 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     CGPoint touchPoint = [gesture locationInView:self.mapView];
     CLLocationCoordinate2D touchCoordinate = [self.mapView convertPoint:touchPoint
                                                    toCoordinateFromView:self.mapView];
-    [self.mapView removeOverlay:self.directionAnnotation.direction];
-    [self.directionAnnotation updateDirectionWithCoordinate:touchCoordinate];
-    [self.mapView addOverlay:self.directionAnnotation.direction];
+    [self.mapView removeOverlay:self.carAnnotation.direction];
+    [self.carAnnotation updateDirectionWithCoordinate:touchCoordinate];
+    [self.mapView addOverlay:self.carAnnotation.direction];
     [self.mapView removeGestureRecognizer:self.tapGestureRecognizer];
 }
 
@@ -235,7 +236,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
                                     permittedArrowDirections:UIPopoverArrowDirectionAny
                                                     animated:YES];
 }
-
+/*
 - (void)addRotationGestureToViews:(NSArray *)viewArray
 {
     for (UIView *view in viewArray) {
@@ -264,4 +265,5 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 {
     gesture.view.center = [gesture locationInView:gesture.view.superview];
 }
+*/
 @end

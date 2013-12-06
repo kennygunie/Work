@@ -21,4 +21,5 @@
 
 - (instancetype)initWithCar:(Car *)car;
 - (void)updateDirectionWithCoordinate:(CLLocationCoordinate2D)directionCoordinate;
+
 @end

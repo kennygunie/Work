@@ -180,6 +180,8 @@
 				FB2042FA184388DE00E1D46A /* AnnotationTableViewController.m */,
 				FBF034D01844E20D00DF83B1 /* CarAnnotation.h */,
 				FBF034D11844E20D00DF83B1 /* CarAnnotation.m */,
+				FBBE60701850D05C008C579E /* DirectionAnnotation.h */,
+				FBBE60711850D05C008C579E /* DirectionAnnotation.m */,
 				FB588351183A115F001D7E29 /* DeclarationAppDelegate.h */,
 				FB588352183A115F001D7E29 /* DeclarationAppDelegate.m */,
 				FB588357183A115F001D7E29 /* DeclarationViewController.h */,
@@ -209,8 +211,6 @@
 				FBF034CB1843B42300DF83B1 /* UpdateDeclaration.h */,
 				FB7886D0184F2F0500947AC7 /* UIBezierPath+Utils.h */,
 				FB7886D1184F2F0500947AC7 /* UIBezierPath+Utils.m */,
-				FBBE60701850D05C008C579E /* DirectionAnnotation.h */,
-				FBBE60711850D05C008C579E /* DirectionAnnotation.m */,
 			);
 			path = Declaration;
 			sourceTree = "<group>";

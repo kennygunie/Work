@@ -38,6 +38,8 @@
     MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinateArray
                                                          count:2];
     self.direction = polyLine;
+    float angle = M_1_PI;
+    self.directionAnnotation = [[DirectionAnnotation alloc] initWithAngle:angle];
 }
 
 

@@ -10,4 +10,14 @@
 
 @implementation DirectionAnnotation
 
+- (instancetype)initWithAngle:(float)angle
+{
+    self = [super init];
+    if (self) {
+        _angle = angle;
+        _directionImage = [UIImage imageNamed:@"triangle"];
+    }
+    return self;
+}
+
 @end

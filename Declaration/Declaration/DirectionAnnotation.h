@@ -13,4 +13,9 @@
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *subtitle;
+@property float angle;
+@property (readonly, nonatomic) UIImage *directionImage;
+
+- (instancetype)initWithAngle:(float)angle;
+
 @end
