@@ -25,22 +25,19 @@
 }
 
 #pragma mark - Getters & setters
-- (void)coordinate:(CLLocationCoordinate2D)coordinate
+- (void)setCoordinate:(CLLocationCoordinate2D)coordinate
 {
     _coordinate = coordinate;
-    self.car.coordinate = coordinate;
+    _car.coordinate = coordinate;
 }
 
-- (void)updateDirectionWithCoordinate:(CLLocationCoordinate2D)directionCoordinate
+- (DirectionAnnotation *)directionAnnotation
 {
-    self.car.directionCoordinate = directionCoordinate;
-    CLLocationCoordinate2D coordinateArray[2] = {self.car.coordinate, self.car.directionCoordinate};
-    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinateArray
-                                                         count:2];
-    self.direction = polyLine;
-    float angle = M_1_PI;
-    self.directionAnnotation = [[DirectionAnnotation alloc] initWithAngle:angle];
-}
+    if (_directionAnnotation == nil && _car) {
+        _directionAnnotation = [[DirectionAnnotation alloc] initWithCar:self.car];
 
+    }
+    return _directionAnnotation;
+}
 
 @end

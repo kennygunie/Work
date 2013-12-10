@@ -53,7 +53,7 @@
 
 - (IBAction)confirmAction:(id)sender
 {
-    [self.formViewController updateDeclaration];
+    [self.formViewController submitDeclaration];
     [self.declaration submit];
     
     /*

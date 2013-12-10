@@ -214,7 +214,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 #pragma mark - UpdateDeclaration Protocole
 
-- (void)updateDeclaration
+- (void)submitDeclaration
 {
     self.declaration.title = self.titleTextField.text;
     if ([self.detailTextView.text isEqualToString:self.detailPlaceHolder]) {

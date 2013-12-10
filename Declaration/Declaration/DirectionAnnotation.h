@@ -9,13 +9,16 @@
 #import <Foundation/Foundation.h>
 @import MapKit;
 
+@class Car;
+
 @interface DirectionAnnotation : NSObject <MKAnnotation>
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
-@property (copy, nonatomic) NSString *title;
-@property (copy, nonatomic) NSString *subtitle;
-@property float angle;
-@property (readonly, nonatomic) UIImage *directionImage;
+//@property (copy, nonatomic) NSString *title;
+//@property (copy, nonatomic) NSString *subtitle;
+@property (strong, nonatomic) Car *car;
+@property (nonatomic) MKPolyline *directionLine;
 
-- (instancetype)initWithAngle:(float)angle;
+- (instancetype)initWithCar:(Car *)car;
+- (void)updateDirectionLine;
 
 @end

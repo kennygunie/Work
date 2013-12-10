@@ -7,17 +7,32 @@
 //
 
 #import "DirectionAnnotation.h"
+#import "Car.h"
 
 @implementation DirectionAnnotation
 
-- (instancetype)initWithAngle:(float)angle
+- (instancetype)initWithCar:(Car *)car
 {
     self = [super init];
     if (self) {
-        _angle = angle;
-        _directionImage = [UIImage imageNamed:@"triangle"];
+        _car = car;
+        _coordinate = car.directionCoordinate;
     }
     return self;
+}
+
+- (void)setCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    _coordinate = coordinate;
+    self.car.directionCoordinate = coordinate;
+    [self updateDirectionLine];
+}
+
+- (void)updateDirectionLine
+{
+    CLLocationCoordinate2D coordinateArray[2] = {self.car.coordinate, self.car.directionCoordinate};
+    self.directionLine = [MKPolyline polylineWithCoordinates:coordinateArray
+                                                       count:2];
 }
 
 @end

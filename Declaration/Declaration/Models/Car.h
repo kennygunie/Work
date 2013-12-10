@@ -9,15 +9,16 @@
 #import <Foundation/Foundation.h>
 @import CoreLocation;
 
-@interface Car : NSObject
+@interface Car : NSObject <NSCopying>
 
 @property (copy, nonatomic) NSString *model;
 @property (copy, nonatomic) NSString *geocoding;
 @property (nonatomic) UIImage *image;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic) CLLocationCoordinate2D directionCoordinate;
-@property float angle;
+@property (readonly) float angle;
+@property (readonly) BOOL hasDirection;
 
-- (instancetype)initWithCar:(Car *)car;
+//- (instancetype)initWithCar:(Car *)car;
 
 @end

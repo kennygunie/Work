@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UpdateDeclaration.h"
 @class Declaration;
 
-@interface FormViewController : UITableViewController <UpdateDeclaration>
+@interface FormViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *detailTextView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) Declaration *declaration;
+
+- (void)submitDeclaration;
 @end

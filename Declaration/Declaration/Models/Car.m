@@ -11,14 +11,36 @@
 @implementation Car
 
 
-- (instancetype)initWithCar:(Car *)car
+//- (instancetype)initWithCar:(Car *)car
+//{
+//    self = [super init];
+//    if (self) {
+//        self.model = car.model;
+//        self.image = car.image;
+//    }
+//    return self;
+//}
+
+
+- (instancetype)copyWithZone:(NSZone *)zone
 {
-    self = [super init];
-    if (self) {
-        self.model = car.model;
-        self.image = car.image;
+    Car *copy = [[[self class] allocWithZone:zone] init];
+    if (copy) {
+        copy.model = self.model;
+        copy.image = self.image;
     }
-    return self;
+    return copy;
+}
+
+- (float)angle
+{
+    return atan2f(self.coordinate.longitude - self.directionCoordinate.longitude, self.coordinate.latitude - self.directionCoordinate.latitude);
+}
+
+- (void)setDirectionCoordinate:(CLLocationCoordinate2D)directionCoordinate
+{
+    _hasDirection = YES;
+    _directionCoordinate = directionCoordinate;
 }
 
 @end
