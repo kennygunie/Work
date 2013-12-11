@@ -19,6 +19,4 @@
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *subtitle;
 
-- (instancetype)initWithCar:(Car *)car;
-
 @end

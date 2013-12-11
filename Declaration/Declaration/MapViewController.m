@@ -76,7 +76,8 @@ static NSString *DirectionIcon = @"🎯";
             Car *carCopy = [car copy];
             [weakSelf.declaration addCarsObject:carCopy];
             
-            CarAnnotation *annotation = [[CarAnnotation alloc] initWithCar:carCopy];
+            CarAnnotation *annotation = [[CarAnnotation alloc] init];
+            annotation.car = carCopy;
             annotation.coordinate = weakSelf.lastTouchMapCoordinate;
             [weakSelf.mapView addAnnotation:annotation];
             
@@ -159,6 +160,7 @@ static NSString *DirectionIcon = @"🎯";
             annotationView.image = carImage;
             annotationView.frame = CGRectMake(0, 0, carImage.size.width/3, carImage.size.height/3);
             annotationView.annotation = annotation;
+            annotationView.transform = CGAffineTransformMakeRotation(carAnnotation.car.angle + 2 * M_2_PI);
         }
     } else if ([annotation isKindOfClass:[DirectionAnnotation class]]) {
         DirectionAnnotation *directionAnnotation = annotation;
@@ -168,6 +170,7 @@ static NSString *DirectionIcon = @"🎯";
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:directionAnnotation
                                                           reuseIdentifier:DirectionAnnotationIdent];
             annotationView.image = [UIImage imageNamed:@"arrowhead"];
+            annotationView.draggable = YES;
         }
         annotationView.transform = CGAffineTransformMakeRotation(directionAnnotation.car.angle);
         
@@ -181,20 +184,36 @@ didChangeDragState:(MKAnnotationViewDragState)newState
    fromOldState:(MKAnnotationViewDragState)oldState
 {
     if (newState == MKAnnotationViewDragStateStarting) {
-        CarAnnotation *annotation = self.currentCarAnnotationView.annotation;
-        [self.mapView removeOverlay:annotation.directionAnnotation.directionLine];
-        [self.mapView removeAnnotation:annotation.directionAnnotation];
+        if ([annotationView.annotation isKindOfClass:[CarAnnotation class]]) {
+            CarAnnotation *annotation = annotationView.annotation;
+            [self.mapView removeOverlay:annotation.directionAnnotation.directionLine];
+            [self.mapView removeAnnotation:annotation.directionAnnotation];
+        } else if ([annotationView.annotation isKindOfClass:[DirectionAnnotation class]]) {
+            DirectionAnnotation *annotation = annotationView.annotation;
+            [self.mapView removeOverlay:annotation.directionLine];
+        }
     } else if (newState == MKAnnotationViewDragStateEnding
                || newState == MKAnnotationViewDragStateCanceling) {
         // custom code when drag ends...
         // tell the annotation view that the drag is done
         [annotationView setDragState:MKAnnotationViewDragStateNone animated:YES];
-        CarAnnotation *annotation = self.currentCarAnnotationView.annotation;
-        if (annotation.car.hasDirection) {            
-            [annotation.directionAnnotation updateDirectionLine];
-            [self.mapView addOverlay:annotation.directionAnnotation.directionLine];
-            [self.mapView addAnnotation:annotation.directionAnnotation];
-            self.currentCarAnnotationView.transform = CGAffineTransformMakeRotation(annotation.car.angle + 2 * M_2_PI);
+        
+        if ([annotationView.annotation isKindOfClass:[CarAnnotation class]]) {
+            CarAnnotation *annotation = annotationView.annotation;
+            if (annotation.car.hasDirection) {
+                [annotation.directionAnnotation updateDirectionLine];
+                [self.mapView addOverlay:annotation.directionAnnotation.directionLine];
+                [self.mapView addAnnotation:annotation.directionAnnotation];
+                annotationView.transform = CGAffineTransformMakeRotation(annotation.car.angle + 2 * M_2_PI);
+            }
+        } else if ([annotationView.annotation isKindOfClass:[DirectionAnnotation class]]) {
+            DirectionAnnotation *annotation = annotationView.annotation;
+            [self.mapView removeAnnotation:annotation.carAnnotation];
+            [annotation updateDirectionLine];
+            [self.mapView addOverlay:annotation.directionLine];
+            [self.mapView addAnnotation:annotation.carAnnotation];
+            annotationView.transform = CGAffineTransformMakeRotation(annotation.car.angle);
+            
         }
     }
 }
@@ -242,12 +261,13 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     
     [self.mapView removeOverlay:annotation.directionAnnotation.directionLine];
     [self.mapView removeAnnotation:annotation.directionAnnotation];
+    [self.mapView removeAnnotation:annotation];
     
     annotation.directionAnnotation.coordinate = [self.mapView convertPoint:touchPoint
                                                       toCoordinateFromView:self.mapView];
     [self.mapView addOverlay:annotation.directionAnnotation.directionLine];
     [self.mapView addAnnotation:annotation.directionAnnotation];
-    self.currentCarAnnotationView.transform = CGAffineTransformMakeRotation(annotation.car.angle + 2 * M_2_PI);
+    [self.mapView addAnnotation:annotation];
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)gesture
@@ -264,18 +284,6 @@ didChangeDragState:(MKAnnotationViewDragState)newState
                                                     animated:YES];
 }
 
-
-//- (void)updateAnnotationForCar:(Car *)car
-//{
-//    CarAnnotation *annotation = self.currentCarAnnotationView.annotation;
-//    
-//    [self.mapView removeOverlay:annotation.directionLine];
-//    [self.mapView removeAnnotation:annotation.directionAnnotation];
-//    [annotation updateDirectionWithCoordinate:touchCoordinate];
-//    [self.mapView addOverlay:annotation.directionLine];
-//    [self.mapView addAnnotation:annotation.directionAnnotation];
-//   
-//}
 
 /*
  - (void)addRotationGestureToViews:(NSArray *)viewArray

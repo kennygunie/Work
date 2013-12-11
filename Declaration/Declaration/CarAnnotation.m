@@ -12,19 +12,16 @@
 
 @implementation CarAnnotation
 
-- (instancetype)initWithCar:(Car *)car
+#pragma mark - Getters & setters
+
+- (void)setCar:(Car *)car
 {
-    self = [super init];
-    if (self) {
-        self.car = car;
-        self.title = car.model;
-        self.subtitle = car.geocoding;
-        self.coordinate = car.coordinate;
-    }
-    return self;
+    _car = car;
+    self.title = car.model;
+    self.subtitle = car.geocoding;
+    self.coordinate = car.coordinate;
 }
 
-#pragma mark - Getters & setters
 - (void)setCoordinate:(CLLocationCoordinate2D)coordinate
 {
     _coordinate = coordinate;
@@ -33,9 +30,10 @@
 
 - (DirectionAnnotation *)directionAnnotation
 {
-    if (_directionAnnotation == nil && _car.hasDirection) {
-        _directionAnnotation = [[DirectionAnnotation alloc] initWithCar:self.car];
-
+    if (_directionAnnotation == nil) {
+        _directionAnnotation = [[DirectionAnnotation alloc] init];
+        _directionAnnotation.car = self.car;
+        _directionAnnotation.carAnnotation = self;
     }
     return _directionAnnotation;
 }
