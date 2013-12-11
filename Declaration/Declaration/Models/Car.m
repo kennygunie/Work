@@ -34,7 +34,7 @@
 
 - (float)angle
 {
-    return atan2f(self.coordinate.longitude - self.directionCoordinate.longitude, self.coordinate.latitude - self.directionCoordinate.latitude);
+    return atan2l(self.coordinate.longitude - self.directionCoordinate.longitude, self.coordinate.latitude - self.directionCoordinate.latitude);
 }
 
 - (void)setDirectionCoordinate:(CLLocationCoordinate2D)directionCoordinate

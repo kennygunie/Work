@@ -10,6 +10,6 @@
 
 @interface UIColor (Utils)
 
-+ (UIColor *)placeHolderTextColor;
++ (UIColor *)randomColor;
 
 @end

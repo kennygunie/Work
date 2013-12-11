@@ -12,12 +12,13 @@
 #import "Car.h"
 #import "CarAnnotation.h"
 #import "DirectionAnnotation.h"
+#import "UIColor+Utils.h"
 @import MapKit;
 @import AddressBookUI;
 
 static NSString *DeleteIcon = @"❌";
 static NSString *DirectionIcon = @"🎯";
-
+static float Delta = 2.3 * M_2_PI;
 @interface MapViewController ()
 @property (nonatomic) UIPopoverController *annotationPopoverController;
 @property (assign, nonatomic) CLLocationCoordinate2D lastTouchMapCoordinate;
@@ -160,7 +161,9 @@ static NSString *DirectionIcon = @"🎯";
             annotationView.image = carImage;
             annotationView.frame = CGRectMake(0, 0, carImage.size.width/3, carImage.size.height/3);
             annotationView.annotation = annotation;
-            annotationView.transform = CGAffineTransformMakeRotation(carAnnotation.car.angle + 2 * M_2_PI);
+            if (carAnnotation.car.hasDirection) {
+                annotationView.transform = CGAffineTransformMakeRotation(carAnnotation.car.angle + Delta);
+            }
         }
     } else if ([annotation isKindOfClass:[DirectionAnnotation class]]) {
         DirectionAnnotation *directionAnnotation = annotation;
@@ -204,7 +207,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
                 [annotation.directionAnnotation updateDirectionLine];
                 [self.mapView addOverlay:annotation.directionAnnotation.directionLine];
                 [self.mapView addAnnotation:annotation.directionAnnotation];
-                annotationView.transform = CGAffineTransformMakeRotation(annotation.car.angle + 2 * M_2_PI);
+                annotationView.transform = CGAffineTransformMakeRotation(annotation.car.angle + Delta);
             }
         } else if ([annotationView.annotation isKindOfClass:[DirectionAnnotation class]]) {
             DirectionAnnotation *annotation = annotationView.annotation;
@@ -243,7 +246,6 @@ didChangeDragState:(MKAnnotationViewDragState)newState
         MKPolylineRenderer *routeRenderer = [[MKPolylineRenderer alloc] initWithPolyline:route];
         routeRenderer.strokeColor = [UIColor blackColor];
         routeRenderer.lineWidth = 3.0;
-        routeRenderer.alpha = 0.8;
         return routeRenderer;
     }
     return nil;

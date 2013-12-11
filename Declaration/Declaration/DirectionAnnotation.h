@@ -16,6 +16,7 @@
 @property (nonatomic) MKPolyline *directionLine;
 @property (weak, nonatomic) CarAnnotation *carAnnotation;
 @property (strong, nonatomic) Car *car;
+@property (strong, nonatomic) UIColor *color;
 
 - (void)updateDirectionLine;
 
