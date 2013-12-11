@@ -69,7 +69,8 @@ static NSString *DirectionIcon = @"🎯";
 {
     if (_annotationTableViewController == nil) {
         UIStoryboard *storyboard = self.storyboard;
-        _annotationTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"AnnotationTableViewController"];
+        static NSString *AnnotationTableViewControllerdentifier = @"AnnotationTableViewController";
+        _annotationTableViewController = [storyboard instantiateViewControllerWithIdentifier:AnnotationTableViewControllerdentifier];
         __weak typeof(self) weakSelf = self;
         _annotationTableViewController.tableViewDidSelect = ^(Car *car) {
             Car *carCopy = [car copy];

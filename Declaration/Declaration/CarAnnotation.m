@@ -33,7 +33,7 @@
 
 - (DirectionAnnotation *)directionAnnotation
 {
-    if (_directionAnnotation == nil && _car) {
+    if (_directionAnnotation == nil && _car.hasDirection) {
         _directionAnnotation = [[DirectionAnnotation alloc] initWithCar:self.car];
 
     }

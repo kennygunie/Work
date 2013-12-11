@@ -85,17 +85,4 @@
     }
 }
 
-/*
-- (IBAction)drawPlanAction:(id)sender
-{
-    if (!self.mapViewController) {
-        UIStoryboard *storyboard = self.storyboard;
-        self.mapViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
-        self.mapViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        self.mapViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-    }
-    [self presentViewController:self.mapViewController
-                       animated:YES completion:nil];
-}
-*/
 @end

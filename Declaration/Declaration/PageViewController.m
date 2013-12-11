@@ -14,9 +14,8 @@
 @interface PageViewController ()
 @property (nonatomic) PageViewControllerDataSource *pageViewControllerDataSource;
 @property (nonatomic) UIImagePickerController *imagePickerController;
-- (PhotoViewController *)addPhotoViewController;
-- (void)propagatePageDidLoadImage:(UIImage *)image
-               pageViewController:(PageViewController *)pageViewController;
+- (PhotoViewController *)createPhotoViewController;
+- (void)pageDidLoadWithImage:(UIImage *)image;
 @end
 
 @implementation PageViewController
@@ -38,19 +37,10 @@
     self.delegate = self;
     self.dataSource = self.pageViewControllerDataSource;
     
-    PhotoViewController *p1 = [self addPhotoViewController];
-    
-    __weak typeof(self) weakSelf = self;
-    
-    [self setViewControllers:@[p1]
+    [self setViewControllers:@[[self createPhotoViewController]]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:NO
-                  completion:^(BOOL finished) {
-                      if (p1.carImageView.image && finished) {
-                          [weakSelf propagatePageDidLoadImage:p1.carImageView.image
-                                           pageViewController:weakSelf];
-                      }
-                  }];
+                  completion:nil];
     
 }
 
@@ -62,18 +52,18 @@
 
 #pragma mark - Utils
 
-- (void)propagatePageDidLoadImage:(UIImage *)image
-               pageViewController:(PageViewController *)pageViewController
+- (void)pageDidLoadWithImage:(UIImage *)image
 {
-    if (pageViewController.pageDidLoadImage) {
-        pageViewController.pageDidLoadImage(image);
+    if (image && self.pageDidLoadImage) {
+        self.pageDidLoadImage(image);
     }
 }
 
 
-- (PhotoViewController *)addPhotoViewController;
+- (PhotoViewController *)createPhotoViewController;
 {
-    PhotoViewController *photoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoViewController"];
+    static NSString* PhotoViewControllerIdentifier = @"PhotoViewController";
+    PhotoViewController *photoViewController = [self.storyboard instantiateViewControllerWithIdentifier:PhotoViewControllerIdentifier];
     photoViewController.pickerDidSelected = ^{
         [self presentViewController:self.imagePickerController
                            animated:YES
@@ -114,10 +104,8 @@
 {
     if (completed && finished) {
         PhotoViewController *photoViewController = [pageViewController.viewControllers firstObject];
-        if (photoViewController.carImageView.image
-            &&finished) {
-            [self propagatePageDidLoadImage:photoViewController.carImageView.image
-                         pageViewController:self];
+        if (finished) {
+            [self pageDidLoadWithImage:photoViewController.carImageView.image];
         }
     }
 }
@@ -131,9 +119,13 @@
         [self.declaration addPhotosObject:image];
         PhotoViewController *photoViewController = [self.viewControllers firstObject];
         [photoViewController setImage:image];
-        [self propagatePageDidLoadImage:image
-                     pageViewController:self];
-        [self addPhotoViewController];
+        [self pageDidLoadWithImage:image];
+        [self createPhotoViewController];
+        
+        [self setViewControllers:@[photoViewController]
+                       direction:UIPageViewControllerNavigationDirectionForward
+                        animated:NO
+                      completion:nil];
     }
 }
 
