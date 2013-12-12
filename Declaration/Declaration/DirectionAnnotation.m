@@ -19,12 +19,13 @@
 }
 #pragma mark - Getters & 
 
-- (void) setCar:(Car *)car
+- (void)setCar:(Car *)car
 {
     _car = car;
     _coordinate = car.directionCoordinate;
 
 }
+
 - (void)setCoordinate:(CLLocationCoordinate2D)coordinate
 {
     _coordinate = coordinate;

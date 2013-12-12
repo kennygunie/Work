@@ -11,6 +11,7 @@
 #import "DirectionAnnotation.h"
 
 @implementation CarAnnotation
+//@synthesize directionAnnotation = _directionAnnotation;
 
 #pragma mark - Getters & setters
 

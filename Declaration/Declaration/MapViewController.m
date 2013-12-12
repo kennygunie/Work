@@ -76,7 +76,6 @@ static float Delta = 2.3 * M_2_PI;
         _annotationTableViewController.tableViewDidSelect = ^(Car *car) {
             Car *carCopy = [car copy];
             [weakSelf.declaration addCarsObject:carCopy];
-            
             CarAnnotation *annotation = [[CarAnnotation alloc] init];
             annotation.car = carCopy;
             annotation.coordinate = weakSelf.lastTouchMapCoordinate;
@@ -93,7 +92,6 @@ static float Delta = 2.3 * M_2_PI;
 {
     if (_annotationPopoverController == nil) {
         _annotationPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.annotationTableViewController];
-        //_annotationPopoverController.delegate = self;
     }
     return _annotationPopoverController;
 }
@@ -194,6 +192,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
         } else if ([annotationView.annotation isKindOfClass:[DirectionAnnotation class]]) {
             DirectionAnnotation *annotation = annotationView.annotation;
             [self.mapView removeOverlay:annotation.directionLine];
+            annotationView.transform = CGAffineTransformIdentity;
         }
     } else if (newState == MKAnnotationViewDragStateEnding
                || newState == MKAnnotationViewDragStateCanceling) {
