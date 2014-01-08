@@ -1,0 +1,3 @@
+platform :ios, '7.0'
+pod 'UIAlertView+Blocks'
+pod 'RestKit', '~> 0.20pre6'
