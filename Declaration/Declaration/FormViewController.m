@@ -63,10 +63,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     CGFloat height = [super tableView:tableView heightForRowAtIndexPath:indexPath];
     
-    if(cell == self.detailCell) {
-        return 216.0; //set the hidden cell's height to 0
-        
-    } else if (cell == self.datePickerCell) {
+    if (cell == self.datePickerCell) {
         if (!self.showDatePicker) {
             return 0;
         }
