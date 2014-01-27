@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB5882D118363771001D7E29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5882BE18363771001D7E29 /* AppDelegate.m */; };
+		FB5882D218363771001D7E29 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5882BF18363771001D7E29 /* Main_iPad.storyboard */; };
+		FB5882D318363771001D7E29 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5882C118363771001D7E29 /* Main_iPhone.storyboard */; };
+		FB5882D418363771001D7E29 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB5882C318363771001D7E29 /* InfoPlist.strings */; };
+		FB5882D518363771001D7E29 /* FirstTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5882C618363771001D7E29 /* FirstTableViewController.m */; };
+		FB5882D618363771001D7E29 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB5882C718363771001D7E29 /* Images.xcassets */; };
+		FB5882D718363771001D7E29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5882C818363771001D7E29 /* main.m */; };
+		FB5882D818363771001D7E29 /* SecondTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5882CA18363771001D7E29 /* SecondTableViewController.m */; };
+		FB5882DB18363771001D7E29 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5882D018363771001D7E29 /* ViewController.m */; };
+		FB5882E11836377C001D7E29 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB5882DD1836377C001D7E29 /* InfoPlist.strings */; };
+		FB5882E31836377C001D7E29 /* TwoTableViewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5882E01836377C001D7E29 /* TwoTableViewsTests.m */; };
+		FBADAE0A18362316001F5446 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBADAE0918362316001F5446 /* Foundation.framework */; };
+		FBADAE0C18362316001F5446 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBADAE0B18362316001F5446 /* CoreGraphics.framework */; };
+		FBADAE0E18362317001F5446 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBADAE0D18362317001F5446 /* UIKit.framework */; };
+		FBADAE2C18362317001F5446 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBADAE2B18362317001F5446 /* XCTest.framework */; };
+		FBADAE2D18362317001F5446 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBADAE0918362316001F5446 /* Foundation.framework */; };
+		FBADAE2E18362317001F5446 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBADAE0D18362317001F5446 /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FBADAE2F18362317001F5446 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBADADFE18362316001F5446 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FBADAE0518362316001F5446;
+			remoteInfo = TwoTableView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB5882BD18363771001D7E29 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB5882BE18363771001D7E29 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB5882C018363771001D7E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		FB5882C218363771001D7E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		FB5882C418363771001D7E29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB5882C518363771001D7E29 /* FirstTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableViewController.h; sourceTree = "<group>"; };
+		FB5882C618363771001D7E29 /* FirstTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewController.m; sourceTree = "<group>"; };
+		FB5882C718363771001D7E29 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FB5882C818363771001D7E29 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB5882C918363771001D7E29 /* SecondTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTableViewController.h; sourceTree = "<group>"; };
+		FB5882CA18363771001D7E29 /* SecondTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTableViewController.m; sourceTree = "<group>"; };
+		FB5882CB18363771001D7E29 /* TwoTableViews-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TwoTableViews-Info.plist"; sourceTree = "<group>"; };
+		FB5882CC18363771001D7E29 /* TwoTableViews-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TwoTableViews-Prefix.pch"; sourceTree = "<group>"; };
+		FB5882CF18363771001D7E29 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FB5882D018363771001D7E29 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FB5882DE1836377C001D7E29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB5882DF1836377C001D7E29 /* TwoTableViewsTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TwoTableViewsTests-Info.plist"; sourceTree = "<group>"; };
+		FB5882E01836377C001D7E29 /* TwoTableViewsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoTableViewsTests.m; sourceTree = "<group>"; };
+		FBADAE0618362316001F5446 /* TwoTableViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoTableViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBADAE0918362316001F5446 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FBADAE0B18362316001F5446 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FBADAE0D18362317001F5446 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FBADAE2A18362317001F5446 /* TwoTableViewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwoTableViewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBADAE2B18362317001F5446 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FBADAE0318362316001F5446 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBADAE0C18362316001F5446 /* CoreGraphics.framework in Frameworks */,
+				FBADAE0E18362317001F5446 /* UIKit.framework in Frameworks */,
+				FBADAE0A18362316001F5446 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBADAE2718362317001F5446 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBADAE2C18362317001F5446 /* XCTest.framework in Frameworks */,
+				FBADAE2E18362317001F5446 /* UIKit.framework in Frameworks */,
+				FBADAE2D18362317001F5446 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB5882BC18363771001D7E29 /* TwoTableViews */ = {
+			isa = PBXGroup;
+			children = (
+				FB5882BD18363771001D7E29 /* AppDelegate.h */,
+				FB5882BE18363771001D7E29 /* AppDelegate.m */,
+				FB5882BF18363771001D7E29 /* Main_iPad.storyboard */,
+				FB5882C118363771001D7E29 /* Main_iPhone.storyboard */,
+				FB5882C318363771001D7E29 /* InfoPlist.strings */,
+				FB5882C518363771001D7E29 /* FirstTableViewController.h */,
+				FB5882C618363771001D7E29 /* FirstTableViewController.m */,
+				FB5882C718363771001D7E29 /* Images.xcassets */,
+				FB5882C818363771001D7E29 /* main.m */,
+				FB5882C918363771001D7E29 /* SecondTableViewController.h */,
+				FB5882CA18363771001D7E29 /* SecondTableViewController.m */,
+				FB5882CB18363771001D7E29 /* TwoTableViews-Info.plist */,
+				FB5882CC18363771001D7E29 /* TwoTableViews-Prefix.pch */,
+				FB5882CF18363771001D7E29 /* ViewController.h */,
+				FB5882D018363771001D7E29 /* ViewController.m */,
+			);
+			path = TwoTableViews;
+			sourceTree = "<group>";
+		};
+		FB5882DC1836377C001D7E29 /* TwoTableViewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB5882DD1836377C001D7E29 /* InfoPlist.strings */,
+				FB5882DF1836377C001D7E29 /* TwoTableViewsTests-Info.plist */,
+				FB5882E01836377C001D7E29 /* TwoTableViewsTests.m */,
+			);
+			path = TwoTableViewsTests;
+			sourceTree = "<group>";
+		};
+		FBADADFD18362316001F5446 = {
+			isa = PBXGroup;
+			children = (
+				FB5882BC18363771001D7E29 /* TwoTableViews */,
+				FB5882DC1836377C001D7E29 /* TwoTableViewsTests */,
+				FBADAE0818362316001F5446 /* Frameworks */,
+				FBADAE0718362316001F5446 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FBADAE0718362316001F5446 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBADAE0618362316001F5446 /* TwoTableViews.app */,
+				FBADAE2A18362317001F5446 /* TwoTableViewsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBADAE0818362316001F5446 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBADAE0918362316001F5446 /* Foundation.framework */,
+				FBADAE0B18362316001F5446 /* CoreGraphics.framework */,
+				FBADAE0D18362317001F5446 /* UIKit.framework */,
+				FBADAE2B18362317001F5446 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FBADAE0518362316001F5446 /* TwoTableViews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBADAE3B18362317001F5446 /* Build configuration list for PBXNativeTarget "TwoTableViews" */;
+			buildPhases = (
+				FBADAE0218362316001F5446 /* Sources */,
+				FBADAE0318362316001F5446 /* Frameworks */,
+				FBADAE0418362316001F5446 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwoTableViews;
+			productName = TwoTableView;
+			productReference = FBADAE0618362316001F5446 /* TwoTableViews.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FBADAE2918362317001F5446 /* TwoTableViewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBADAE3E18362317001F5446 /* Build configuration list for PBXNativeTarget "TwoTableViewsTests" */;
+			buildPhases = (
+				FBADAE2618362317001F5446 /* Sources */,
+				FBADAE2718362317001F5446 /* Frameworks */,
+				FBADAE2818362317001F5446 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBADAE3018362317001F5446 /* PBXTargetDependency */,
+			);
+			name = TwoTableViewsTests;
+			productName = TwoTableViewTests;
+			productReference = FBADAE2A18362317001F5446 /* TwoTableViewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FBADADFE18362316001F5446 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Kien Nguyen";
+				TargetAttributes = {
+					FBADAE2918362317001F5446 = {
+						TestTargetID = FBADAE0518362316001F5446;
+					};
+				};
+			};
+			buildConfigurationList = FBADAE0118362316001F5446 /* Build configuration list for PBXProject "TwoTableViews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FBADADFD18362316001F5446;
+			productRefGroup = FBADAE0718362316001F5446 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FBADAE0518362316001F5446 /* TwoTableViews */,
+				FBADAE2918362317001F5446 /* TwoTableViewsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FBADAE0418362316001F5446 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB5882D318363771001D7E29 /* Main_iPhone.storyboard in Resources */,
+				FB5882D618363771001D7E29 /* Images.xcassets in Resources */,
+				FB5882D418363771001D7E29 /* InfoPlist.strings in Resources */,
+				FB5882D218363771001D7E29 /* Main_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBADAE2818362317001F5446 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB5882E11836377C001D7E29 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FBADAE0218362316001F5446 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB5882DB18363771001D7E29 /* ViewController.m in Sources */,
+				FB5882D518363771001D7E29 /* FirstTableViewController.m in Sources */,
+				FB5882D818363771001D7E29 /* SecondTableViewController.m in Sources */,
+				FB5882D718363771001D7E29 /* main.m in Sources */,
+				FB5882D118363771001D7E29 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBADAE2618362317001F5446 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB5882E31836377C001D7E29 /* TwoTableViewsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FBADAE3018362317001F5446 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FBADAE0518362316001F5446 /* TwoTableViews */;
+			targetProxy = FBADAE2F18362317001F5446 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB5882BF18363771001D7E29 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB5882C018363771001D7E29 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		FB5882C118363771001D7E29 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB5882C218363771001D7E29 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		FB5882C318363771001D7E29 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB5882C418363771001D7E29 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FB5882DD1836377C001D7E29 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB5882DE1836377C001D7E29 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FBADAE3918362317001F5446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FBADAE3A18362317001F5446 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FBADAE3C18362317001F5446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TwoTableViews/TwoTableViews-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/TwoTableViews/TwoTableViews-Info.plist";
+				PRODUCT_NAME = TwoTableViews;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FBADAE3D18362317001F5446 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TwoTableViews/TwoTableViews-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/TwoTableViews/TwoTableViews-Info.plist";
+				PRODUCT_NAME = TwoTableViews;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FBADAE3F18362317001F5446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TwoTableViews.app/TwoTableViews";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TwoTableView/TwoTableView-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TwoTableViewTests/TwoTableViewsTests-Info.plist";
+				PRODUCT_NAME = TwoTableViewsTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FBADAE4018362317001F5446 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TwoTableViews.app/TwoTableViews";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TwoTableView/TwoTableView-Prefix.pch";
+				INFOPLIST_FILE = "TwoTableViewTests/TwoTableViewsTests-Info.plist";
+				PRODUCT_NAME = TwoTableViewsTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FBADAE0118362316001F5446 /* Build configuration list for PBXProject "TwoTableViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBADAE3918362317001F5446 /* Debug */,
+				FBADAE3A18362317001F5446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBADAE3B18362317001F5446 /* Build configuration list for PBXNativeTarget "TwoTableViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBADAE3C18362317001F5446 /* Debug */,
+				FBADAE3D18362317001F5446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBADAE3E18362317001F5446 /* Build configuration list for PBXNativeTarget "TwoTableViewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBADAE3F18362317001F5446 /* Debug */,
+				FBADAE4018362317001F5446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FBADADFE18362316001F5446 /* Project object */;
+}
